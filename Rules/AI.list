@@ -26,11 +26,13 @@ HOST-SUFFIX,stripe.com,AI
 HOST-SUFFIX,turn.livekit.cloud,AI
 HOST-SUFFIX,anthropic.com,AI
 HOST-SUFFIX,claude.ai,AI
-# HOST-SUFFIX,gemini.google.com,AI
-# HOST-SUFFIX,notebooklm.google.com,AI
-# HOST-SUFFIX,aistudio.google.com,AI
-# HOST-SUFFIX,googleapis.com,AI
-# HOST-SUFFIX,generativelanguage.googleapis.com,AI
+HOST-SUFFIX,accounts.google.com,AI
+HOST-SUFFIX,drive.google.com,AI
+HOST-SUFFIX,developers.google.com,AI
+HOST-SUFFIX,gemini.google.com,AI
+HOST-SUFFIX,notebooklm.google.com,AI
+HOST-SUFFIX,aistudio.google.com,AI
+HOST-SUFFIX,googleapis.com,AI
 HOST-SUFFIX,suno.com,AI
 HOST-SUFFIX,X.ai,AI
 HOST-SUFFIX,grok.com,AI
