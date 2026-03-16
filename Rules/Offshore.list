@@ -1,27 +1,26 @@
 # NAME: Offshore Finance Services
 # HSBC, BOCHK, ZA, Wise, iFast, Airstar
 # HSBC
-HOST-SUFFIX, hsbc.com.hk, Bank
-HOST-SUFFIX, hsbcprivatebank.com.hk, Bank
-HOST-SUFFIX, hsbcassetmanagement.com.hk, Bank
-HOST-KEYWORD, hsbc.com, Bank
+HOST-SUFFIX, hsbc.com.hk, Offshore
+HOST-SUFFIX, hsbcprivatebank.com.hk, Offshore
+HOST-SUFFIX, hsbcassetmanagement.com.hk, Offshore
+HOST-KEYWORD, hsbc.com, Offshore
 # BOC HK
-HOST-SUFFIX, bochk.com, Bank
-HOST-SUFFIX, ebanking.bochk.com, Bank
-HOST-KEYWORD, bochk.com, Bank
+HOST-SUFFIX, bochk.com, Offshore
+HOST-SUFFIX, ebanking.bochk.com, Offshore
+HOST-KEYWORD, bochk.com, Offshore
 # ZA Bank
-HOST-SUFFIX, zabank.com, Bank
-HOST-SUFFIX, za.group, Bank
-HOST-SUFFIX, bank.za.group, Bank
-HOST-KEYWORD, zabank, Bank
+HOST-SUFFIX, zabank.com, Offshore
+HOST-SUFFIX, za.group, Offshore
+HOST-KEYWORD, zabank, Offshore
 # Wise
-HOST-SUFFIX, wise.com, Bank
-HOST-SUFFIX, transferwise.com, Bank
-HOST-KEYWORD, wise.com, Bank
+HOST-SUFFIX, wise.com, Offshore
+HOST-SUFFIX, transferwise.com, Offshore
+HOST-KEYWORD, wise.com, Offshore
 # iFast
-HOST-SUFFIX, ifastcorp.com, Bank
-HOST-SUFFIX, ifastgb.com, Bank
-HOST-SUFFIX, ifastfinancial.com, Bank
+HOST-SUFFIX, ifastcorp.com, Offshore
+HOST-SUFFIX, ifastgb.com, Offshore
+HOST-SUFFIX, ifastfinancial.com, Offshore
 # Airstar
-HOST-SUFFIX, airstarbank.com, Bank
-HOST-KEYWORD, airstarbank, Bank
+HOST-SUFFIX, airstarbank.com, Offshore
+HOST-KEYWORD, airstarbank, Offshore
