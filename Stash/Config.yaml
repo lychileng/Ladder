@@ -1,0 +1,424 @@
+# Stash 配置（稳妥 / 高性能 / 高灵活性整理版）
+mixed-port: 7890
+redir-port: 7892
+allow-lan: false
+ipv6: true
+mode: Rule
+log-level: warning
+
+# 仅监听本机，避免 REST API 暴露到局域网 / 公网
+external-controller: 127.0.0.1:9090
+secret: "hello,world"
+
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  override-destination: true
+  # 为了稳定性，关闭纯 IP 反查；保留常规 TLS/HTTP/QUIC 嗅探
+  parse-pure-ip: false
+  force-dns-mapping: true
+  sniff:
+    QUIC:
+      ports: [443]
+    TLS:
+      ports: [443, 8443]
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+  force-domain:
+    - "+.netflix.com"
+    - "+.nflxvideo.net"
+    - "+.media.dssott.com"
+  skip-domain:
+    - "+.apple.com"
+    - "+.push.apple.com"
+    - Mijia Cloud
+    - dlg.io.mi.com
+    - "+.oray.com"
+    - "+.sunlogin.net"
+
+tun:
+  enable: true
+  stack: system
+  dns-hijack:
+    - "0.0.0.0:53"
+  auto-detect-interface: true
+  auto-route: true
+  auto-redirect: true
+  # 兼容性优先，保留 false；若你后续特别在意“绝不漏流量”，可再切到 true 测试
+  strict-route: false
+  endpoint-independent-nat: true
+
+dns:
+  enable: true
+  ipv6: true
+  use-system-hosts: false
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+
+  # 只保留真正需要绕过 fake-ip 的系统 / 局域网 / 时间同步 / 音乐 / 主机联机域名
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "*.localhost"
+    - "localhost"
+    - "time.windows.com"
+    - "time.nist.gov"
+    - "time.apple.com"
+    - "time.asia.apple.com"
+    - "time1.apple.com"
+    - "time2.apple.com"
+    - "time3.apple.com"
+    - "time4.apple.com"
+    - "time5.apple.com"
+    - "time6.apple.com"
+    - "time7.apple.com"
+    - "*.ntp.org.cn"
+    - "*.openwrt.pool.ntp.org"
+    - "pool.ntp.org"
+    - "ntp.ubuntu.com"
+    - "ntp.aliyun.com"
+    - "ntp1.aliyun.com"
+    - "ntp2.aliyun.com"
+    - "ntp3.aliyun.com"
+    - "ntp4.aliyun.com"
+    - "ntp5.aliyun.com"
+    - "ntp6.aliyun.com"
+    - "ntp7.aliyun.com"
+    - "time1.cloud.tencent.com"
+    - "time.ustc.edu.cn"
+    - "time1.google.com"
+    - "time2.google.com"
+    - "time3.google.com"
+    - "time4.google.com"
+    - "stun.*.*.*"
+    - "stun.*.*"
+    - "*.*.stun.playstation.net"
+    - "*.*.*.srv.nintendo.net"
+    - "xbox.*.*.microsoft.com"
+    - "*.ipv6.microsoft.com"
+    - "*.*.xboxlive.com"
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - "localhost.ptlogin2.qq.com"
+    - "music.163.com"
+    - "*.music.163.com"
+    - "*.126.net"
+    - "musicapi.taihe.com"
+    - "music.taihe.com"
+    - "songsearch.kugou.com"
+    - "trackercdn.kugou.com"
+    - "*.kuwo.cn"
+    - "api-jooxtt.sanook.com"
+    - "api.joox.com"
+    - "joox.com"
+    - "y.qq.com"
+    - "*.y.qq.com"
+    - "streamoc.music.tc.qq.com"
+    - "mobileoc.music.tc.qq.com"
+    - "isure.stream.qqmusic.qq.com"
+    - "dl.stream.qqmusic.qq.com"
+    - "aqqmusic.tc.qq.com"
+    - "amobile.music.tc.qq.com"
+    - "*.music.migu.cn"
+    - "music.migu.cn"
+
+  # 启动阶段只用纯 IP DNS，避免 bootstrap 死循环
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 1.1.1.1
+    - 8.8.8.8
+    - 2400:3200::1
+    - 2606:4700:4700::1111
+
+  # 主解析：国内 + 国外混合，兼顾大陆域名速度与海外域名可用性
+  nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+
+  # 解析代理节点域名时，优先使用稳定直连 DNS
+  proxy-server-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    # - https://dns.alidns.com/dns-query
+    # - https://doh.pub/dns-query
+    # - https://cloudflare-dns.com/dns-query
+
+  # 明确补上 fallback，避免 fallback-filter 成为“空逻辑”
+  fallback:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
+      - 127.0.0.1/32
+    domain:
+      - "+.google.com"
+      - "+.facebook.com"
+      - "+.twitter.com"
+      - "+.youtube.com"
+      - "+.xn--ngstr-lra8j.com"
+      - "+.google.cn"
+      - "+.googleapis.cn"
+      - "+.googleapis.com"
+      - "+.gvt1.com"
+
+proxy-providers:
+  CMY:
+    type: http
+    url: <subscription_url> # 替换为你的订阅链接
+    path: ./proxy_provider/cmy.yaml
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204
+      interval: 600
+
+proxy-groups:
+  - name: AI
+    type: select
+    proxies:
+      - 🇼🇸 TW
+      - 🇸🇬 SG
+      - 🇯🇵 JP
+      - ✨ AI
+
+  - name: SNS
+    type: select
+    proxies:
+      - 🇭🇰 HK
+      - 🇼🇸 TW
+      - 🇸🇬 SG
+      - 🇯🇵 JP
+      - 🇰🇷 KR
+      - 🇺🇸 US
+      - 🇪🇺 EU
+
+  - name: Stream
+    type: select
+    proxies:
+      - 🇭🇰 HK
+      - 🇼🇸 TW
+      - 🇸🇬 SG
+      - 🇯🇵 JP
+      - 🇰🇷 KR
+      - 🇺🇸 US
+      - 🇪🇺 EU
+
+  - name: Crypto
+    type: select
+    proxies:
+      - DIRECT
+      - 🇭🇰 HK
+      - 🇼🇸 TW
+      - 🇸🇬 SG
+
+  - name: Offshore
+    type: select
+    proxies:
+      - DIRECT
+      - 🇭🇰 HK
+      - 🇸🇬 SG
+
+  - name: Others
+    type: select
+    proxies:
+      - DIRECT
+      - 🇭🇰 HK
+      - 🇼🇸 TW
+      - 🇸🇬 SG
+      - 🇯🇵 JP
+      - 🇰🇷 KR
+      - 🇺🇸 US
+      - 🇪🇺 EU
+
+  - name: ✨ AI
+    type: url-test
+    include-all: true
+    filter: ".*AI.*"
+    interval: 300
+    lazy: true
+    tolerance: 50
+
+  - name: 🇭🇰 HK
+    type: url-test
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    include-all: true
+    filter: "港|🇭🇰|HK|(?i)Hong"
+    interval: 300
+    lazy: true
+    tolerance: 50
+
+  - name: 🇼🇸 TW
+    type: url-test
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
+    include-all: true
+    filter: "台|🇹🇼|TW|(?i)Taiwan"
+    interval: 300
+    lazy: true
+    tolerance: 50
+
+  - name: 🇸🇬 SG
+    type: url-test
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    include-all: true
+    filter: "新加坡|坡|🇸🇬|SG|(?i)Singapore"
+    interval: 300
+    lazy: true
+    tolerance: 50
+
+  - name: 🇯🇵 JP
+    type: url-test
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    include-all: true
+    filter: "日|🇯🇵|JP|(?i)Japan"
+    interval: 300
+    lazy: true
+    tolerance: 50
+
+  - name: 🇰🇷 KR
+    type: url-test
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
+    include-all: true
+    filter: "韩|🇰🇷|KR|(?i)Korea"
+    interval: 300
+    lazy: true
+    tolerance: 50
+
+  - name: 🇺🇸 US
+    type: url-test
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    include-all: true
+    filter: "美|🇺🇸|US|(?i)States|America|United States"
+    interval: 300
+    lazy: true
+    tolerance: 50
+
+  - name: 🇪🇺 EU
+    type: url-test
+    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Europe.png
+    include-all: true
+    filter: "英|法|德|荷|意|西|葡|瑞|挪|芬|EU|欧|(?i)Europe|London|Paris|Frankfurt|Amsterdam|Milan|Madrid"
+    interval: 300
+    lazy: true
+    tolerance: 50
+
+rule-providers:
+  Mainland:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Mainland.yaml
+    path: ./rules/mainland.yaml
+    interval: 86400
+
+  AI:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/AI.yaml
+    path: ./rules/ai.yaml
+    interval: 86400
+
+  Offshore:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Offshore.yaml
+    path: ./rules/offshore.yaml
+    interval: 86400
+
+  Crypto:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Crypto.yaml
+    path: ./rules/crypto.yaml
+    interval: 86400
+
+  Media:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Media.yaml
+    path: ./rules/media.yaml
+    interval: 86400
+
+  Telegram:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
+    path: ./rules/telegram.yaml
+    interval: 86400
+
+  Twitter:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
+    path: ./rules/twitter.yaml
+    interval: 86400
+
+  Speedtest:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml
+    path: ./rules/speedtest.yaml
+    interval: 86400
+
+rules:
+  # 订阅服务自身直连
+  - DOMAIN-KEYWORD,cmy.network,DIRECT
+  - DOMAIN-KEYWORD,cmsub.com,DIRECT
+
+  # Crypto
+  - DOMAIN-SUFFIX,bnbstatic.com,Crypto
+  - DOMAIN-SUFFIX,wiz.money,Crypto
+  - DOMAIN-SUFFIX,syncbits.com,Crypto
+  - DOMAIN-SUFFIX,coinmarketcap.com,Crypto
+
+  # GitHub / Dev
+  - DOMAIN-SUFFIX,github.com,Others
+  - DOMAIN-SUFFIX,githubusercontent.com,Others
+  - DOMAIN-SUFFIX,githubassets.com,Others
+  - DOMAIN-KEYWORD,github,Others
+
+  # Lichess
+  - DOMAIN-SUFFIX,lichess.org,DIRECT
+  - DOMAIN-KEYWORD,lichess,DIRECT
+
+  # 媒体
+  - DOMAIN-SUFFIX,fotmob.com,Stream
+  - DOMAIN-SUFFIX,ft.com,Stream
+  - DOMAIN-KEYWORD,ftchinese,Stream
+
+  # Discord
+  - DOMAIN-SUFFIX,discord.com,SNS
+  - DOMAIN-SUFFIX,discordapp.com,SNS
+
+  # 内网
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+
+  # 远程规则接入
+  - RULE-SET,Mainland,DIRECT
+  - RULE-SET,AI,AI
+  - RULE-SET,Offshore,Offshore
+  - RULE-SET,Crypto,Crypto  
+  - RULE-SET,Media,Stream
+  - RULE-SET,Telegram,SNS
+  - RULE-SET,Twitter,SNS
+  - RULE-SET,Speedtest,Others
+
+  # Geo
+  - GEOIP,LAN,DIRECT,no-resolve
+  - GEOIP,CN,DIRECT,no-resolve
+
+  # Final
+  - MATCH,Others
