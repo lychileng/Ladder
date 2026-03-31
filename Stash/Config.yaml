@@ -175,7 +175,7 @@ dns:
       - "+.gvt1.com"
 
 proxy-providers:
-  CMY:
+  Provider:
     type: http
     url: <subscription_url> # 替换为你的订阅链接
     path: ./proxy_provider/cmy.yaml
@@ -188,126 +188,133 @@ proxy-providers:
 proxy-groups:
   - name: AI
     type: select
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/openai.png
     proxies:
-      - 🇼🇸 TW
-      - 🇸🇬 SG
-      - 🇯🇵 JP
-      - ✨ AI
+      - Taiwan
+      - Singapore
+      - Japan
+      - AI Optimize
 
   - name: SNS
     type: select
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/telegram.png
     proxies:
-      - 🇭🇰 HK
-      - 🇼🇸 TW
-      - 🇸🇬 SG
-      - 🇯🇵 JP
-      - 🇰🇷 KR
-      - 🇺🇸 US
-      - 🇪🇺 EU
+      - Hong Kong
+      - Taiwan
+      - Singapore
+      - Japan
+      - Korea
+      - America
+      - Europe
 
   - name: Stream
     type: select
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/youtube.png
     proxies:
-      - 🇭🇰 HK
-      - 🇼🇸 TW
-      - 🇸🇬 SG
-      - 🇯🇵 JP
-      - 🇰🇷 KR
-      - 🇺🇸 US
-      - 🇪🇺 EU
+      - Hong Kong
+      - Taiwan
+      - Singapore
+      - Japan
+      - Korea
+      - America
+      - Europe
 
   - name: Crypto
     type: select
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/bitcoin.png
     proxies:
       - DIRECT
-      - 🇭🇰 HK
-      - 🇼🇸 TW
-      - 🇸🇬 SG
+      - Hong Kong
+      - Taiwan
+      - Singapore
 
   - name: Offshore
     type: select
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/hsbc.png
     proxies:
       - DIRECT
-      - 🇭🇰 HK
-      - 🇸🇬 SG
+      - Hong Kong
+      - Singapore
 
   - name: Others
     type: select
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/global.png
     proxies:
       - DIRECT
-      - 🇭🇰 HK
-      - 🇼🇸 TW
-      - 🇸🇬 SG
-      - 🇯🇵 JP
-      - 🇰🇷 KR
-      - 🇺🇸 US
-      - 🇪🇺 EU
+      - Hong Kong
+      - Taiwan
+      - Singapore
+      - Japan
+      - Korea
+      - America
+      - Europe
 
-  - name: ✨ AI
+  - name: AI Optimize
     type: url-test
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/ai.png
     include-all: true
     filter: ".*AI.*"
     interval: 300
     lazy: true
     tolerance: 50
 
-  - name: 🇭🇰 HK
+  - name: Hong Kong
     type: url-test
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Hong_Kong.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/HK.png
     include-all: true
     filter: "港|🇭🇰|HK|(?i)Hong"
     interval: 300
     lazy: true
     tolerance: 50
 
-  - name: 🇼🇸 TW
+  - name: Taiwan
     type: url-test
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Taiwan.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/TW.png
     include-all: true
     filter: "台|🇹🇼|TW|(?i)Taiwan"
     interval: 300
     lazy: true
     tolerance: 50
 
-  - name: 🇸🇬 SG
+  - name: Singapore
     type: url-test
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Singapore.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/SG.png
     include-all: true
     filter: "新加坡|坡|🇸🇬|SG|(?i)Singapore"
     interval: 300
     lazy: true
     tolerance: 50
 
-  - name: 🇯🇵 JP
+  - name: Japan
     type: url-test
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Japan.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/JP.png
     include-all: true
     filter: "日|🇯🇵|JP|(?i)Japan"
     interval: 300
     lazy: true
     tolerance: 50
 
-  - name: 🇰🇷 KR
+  - name: Korea
     type: url-test
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Korea.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/KR.png
     include-all: true
     filter: "韩|🇰🇷|KR|(?i)Korea"
     interval: 300
     lazy: true
     tolerance: 50
 
-  - name: 🇺🇸 US
+  - name: America
     type: url-test
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/United_States.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/US.png
     include-all: true
     filter: "美|🇺🇸|US|(?i)States|America|United States"
     interval: 300
     lazy: true
     tolerance: 50
 
-  - name: 🇪🇺 EU
+  - name: Europe
     type: url-test
-    icon: https://fastly.jsdelivr.net/gh/Koolson/Qure/IconSet/Color/Europe.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/EU.png
     include-all: true
     filter: "英|法|德|荷|意|西|葡|瑞|挪|芬|EU|欧|(?i)Europe|London|Paris|Frankfurt|Amsterdam|Milan|Madrid"
     interval: 300
