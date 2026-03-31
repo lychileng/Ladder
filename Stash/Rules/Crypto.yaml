@@ -1,0 +1,48 @@
+payload:
+  # Name: Crypto Rules
+  # Binance, Fiat24, SafePal, Ready, PokePay, Kraken, Backpack, MetaMask, Bitget, Kiln
+
+  # Binance
+  # - DOMAIN-SUFFIX,bnbstatic.com
+  # - DOMAIN-SUFFIX,binance.com
+  # - DOMAIN-SUFFIX,binance.org
+  # - DOMAIN-KEYWORD,binance
+  
+  # Fiat24
+  # - DOMAIN-SUFFIX,fiat24.com
+  # - DOMAIN-KEYWORD,fiat24
+
+  # SafePal
+  - DOMAIN-SUFFIX,safepal.com
+  - DOMAIN-SUFFIX,safepal.io
+  - DOMAIN-SUFFIX,safepalwallet.com
+  - DOMAIN-KEYWORD,safepal
+
+  # Ready
+  - DOMAIN-SUFFIX,ready.co
+  - DOMAIN-SUFFIX,card.ready.co
+  - DOMAIN-KEYWORD,ready.co
+
+  # PokePay
+  - DOMAIN-SUFFIX,pokepay.cc
+  - DOMAIN-SUFFIX,pokepay.com
+
+  # Kraken
+  - DOMAIN-SUFFIX,kraken.com
+  - DOMAIN-KEYWORD,kraken.com
+
+  # Backpack
+  - DOMAIN-SUFFIX,backpack.exchange
+  - DOMAIN-SUFFIX,backpack.app
+
+  # MetaMask
+  - DOMAIN-SUFFIX,metamask.io
+  - DOMAIN-KEYWORD,metamask
+
+  # Bitget
+  - DOMAIN-SUFFIX,bitget.com
+  - DOMAIN-KEYWORD,bitget.com
+
+  # Kiln
+  - DOMAIN-SUFFIX,kiln.fi
+  - DOMAIN-KEYWORD,kiln.fi

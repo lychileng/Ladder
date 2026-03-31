@@ -1,0 +1,33 @@
+payload:
+  # Name: Offshore Rules
+  # HSBC, BOCHK, ZA, Wise, iFast, Airstar
+
+  # HSBC
+  - DOMAIN-SUFFIX, hsbc.com.hk
+  - DOMAIN-SUFFIX, hsbcprivatebank.com.hk
+  - DOMAIN-SUFFIX, hsbcassetmanagement.com.hk
+  - DOMAIN-KEYWORD, hsbc.com
+
+  # BOC HK
+  - DOMAIN-SUFFIX, bochk.com
+  - DOMAIN-SUFFIX, ebanking.bochk.com
+  - DOMAIN-KEYWORD, bochk.com
+
+  # ZA Bank
+  - DOMAIN-SUFFIX, zabank.com
+  - DOMAIN-SUFFIX, za.group
+  - DOMAIN-KEYWORD, zabank
+
+  # Wise
+  - DOMAIN-SUFFIX, wise.com
+  - DOMAIN-SUFFIX, transferwise.com
+  - DOMAIN-KEYWORD, wise.com
+
+  # iFast
+  # - DOMAIN-SUFFIX, ifastcorp.com
+  # - DOMAIN-SUFFIX, ifastgb.com
+  # - DOMAIN-SUFFIX, ifastfinancial.com
+
+  # Airstar
+  - DOMAIN-SUFFIX, airstarbank.com
+  - DOMAIN-KEYWORD, airstarbank
