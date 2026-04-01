@@ -1,0 +1,95 @@
+payload:
+  # ===== 精确 HOST（保留关键服务节点）=====
+  - DOMAIN,bg.v4.a.dl.ws.microsoft.com
+  - DOMAIN,bg4.v4.a.dl.ws.microsoft.com
+  - DOMAIN,bj1.api.bing.com
+  - DOMAIN,cdn.marketplaceimages.windowsphone.com
+  - DOMAIN,cn.windowssearch.com
+  - DOMAIN,ctldl.windowsupdate.com
+  - DOMAIN,developer.microsoft.com
+  - DOMAIN,docs.microsoft.com
+  - DOMAIN,download.microsoft.com
+  - DOMAIN,download.visualstudio.microsoft.com
+  - DOMAIN,fs.microsoft.com
+  - DOMAIN,officecdn.microsoft.com
+  - DOMAIN,sdx.microsoft.com
+  - DOMAIN,storeedgefd.dsx.mp.microsoft.com
+  - DOMAIN,www.microsoft.com
+  - DOMAIN,edge.microsoft.com
+  - DOMAIN,msedge.api.cdp.microsoft.com
+
+  # ===== 核心域（必须完整覆盖）=====
+  - DOMAIN-SUFFIX,microsoft.com
+  - DOMAIN-SUFFIX,microsoft.net
+  - DOMAIN-SUFFIX,microsoftonline.com
+  - DOMAIN-SUFFIX,microsoft365.com
+  - DOMAIN-SUFFIX,microsoftusercontent.com
+
+  # ===== Windows / 系统 =====
+  - DOMAIN-SUFFIX,windows.com
+  - DOMAIN-SUFFIX,windows.net
+  - DOMAIN-SUFFIX,windowsupdate.com
+  - DOMAIN-SUFFIX,windowssearch.com
+  - DOMAIN-SUFFIX,msftconnecttest.com
+
+  # ===== Azure（保留全量前缀族，不截断）=====
+  - DOMAIN-SUFFIX,azure.com
+  - DOMAIN-SUFFIX,azure.net
+  - DOMAIN-SUFFIX,azure.cn
+  - DOMAIN-SUFFIX,azureedge.net
+  - DOMAIN-SUFFIX,azurefd.net
+  - DOMAIN-SUFFIX,azurewebsites.net
+  - DOMAIN-SUFFIX,azure-api.net
+  - DOMAIN-SUFFIX,azurecontainer.io
+  - DOMAIN-SUFFIX,azurecosmos.net
+  - DOMAIN-SUFFIX,azuredatabricks.net
+
+  # ===== CDN / 边缘网络 =====
+  - DOMAIN-SUFFIX,msedge.net
+  - DOMAIN-SUFFIX,edgesuite.net
+  - DOMAIN-SUFFIX,akamaized.net
+
+  # ===== Office / 企业服务 =====
+  - DOMAIN-SUFFIX,office.com
+  - DOMAIN-SUFFIX,office.net
+  - DOMAIN-SUFFIX,office365.com
+  - DOMAIN-SUFFIX,sharepoint.com
+  - DOMAIN-SUFFIX,sharepointonline.com
+
+  # ===== OneDrive =====
+  - DOMAIN-SUFFIX,onedrive.com
+  - DOMAIN-SUFFIX,onedrive.net
+  - DOMAIN-SUFFIX,1drv.ms
+
+  # ===== Outlook / 账号体系 =====
+  - DOMAIN-SUFFIX,outlook.com
+  - DOMAIN-SUFFIX,live.com
+  - DOMAIN-SUFFIX,passport.net
+
+  # ===== Bing =====
+  - DOMAIN-SUFFIX,bing.com
+  - DOMAIN-SUFFIX,bing.net
+  - DOMAIN-SUFFIX,bingapis.com
+
+  # ===== Xbox / 游戏 =====
+  - DOMAIN-SUFFIX,xbox.com
+  - DOMAIN-SUFFIX,xboxlive.com
+  - DOMAIN-SUFFIX,xboxservices.com
+  - DOMAIN-SUFFIX,xboxgamepass.com
+
+  # ===== 开发者生态 =====
+  - DOMAIN-SUFFIX,visualstudio.com
+  - DOMAIN-SUFFIX,vscode.dev
+  - DOMAIN-SUFFIX,nuget.org
+  - DOMAIN-SUFFIX,dot.net
+
+  # ===== 通讯 =====
+  - DOMAIN-SUFFIX,skype.com
+  - DOMAIN-SUFFIX,teams.microsoft.com
+
+  # ===== 关键词（严格限制）=====
+  - DOMAIN-KEYWORD,onedrive
+  - DOMAIN-KEYWORD,skydrive
+
+  # ===== 通配（仅保留必要）=====
+  - DOMAIN-WILDCARD,onedrive.*

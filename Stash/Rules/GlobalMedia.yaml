@@ -1,0 +1,113 @@
+payload:
+  # ===== Netflix =====
+  - DOMAIN-SUFFIX,netflix.com
+  - DOMAIN-SUFFIX,nflxvideo.net
+  - DOMAIN-SUFFIX,nflximg.net
+  - DOMAIN-SUFFIX,nflxso.net
+
+  # ===== YouTube =====
+  - DOMAIN-SUFFIX,youtube.com
+  - DOMAIN-SUFFIX,googlevideo.com
+  - DOMAIN-SUFFIX,ytimg.com
+
+  # ===== Disney+ =====
+  - DOMAIN-SUFFIX,disneyplus.com
+  - DOMAIN-SUFFIX,disney-plus.net
+  - DOMAIN-SUFFIX,bamgrid.com
+
+  # ===== HBO =====
+  - DOMAIN-SUFFIX,hbo.com
+  - DOMAIN-SUFFIX,hbomax.com
+
+  # ===== Amazon Prime Video =====
+  - DOMAIN-SUFFIX,primevideo.com
+  - DOMAIN-SUFFIX,aiv-cdn.net
+
+  # ===== Apple TV+ =====
+  - DOMAIN-SUFFIX,tv.apple.com
+  - DOMAIN-SUFFIX,applevideo.net
+
+  # ===== Spotify（音频流媒体）=====
+  - DOMAIN-SUFFIX,spotify.com
+  - DOMAIN-SUFFIX,scdn.co
+
+  # ===== Pornhub =====
+  - DOMAIN-SUFFIX,pornhub.com
+  - DOMAIN-SUFFIX,phncdn.com
+  - DOMAIN-SUFFIX,phprcdn.com
+
+  # ===== OnlyFans =====
+  - DOMAIN-SUFFIX,onlyfans.com
+  - DOMAIN-SUFFIX,onlyfansfans.com
+  - DOMAIN-SUFFIX,ofcdn.co
+
+  # ===== 通用补充（必要但克制）=====
+  - DOMAIN-KEYWORD,pornhub
+  - DOMAIN-KEYWORD,onlyfans
+
+  # ===== 英美主流 =====
+  - DOMAIN-SUFFIX,bbc.com
+  - DOMAIN-SUFFIX,bbc.co.uk
+  - DOMAIN-SUFFIX,cnn.com
+  - DOMAIN-SUFFIX,nytimes.com
+  - DOMAIN-SUFFIX,wsj.com
+  - DOMAIN-SUFFIX,ft.com
+  - DOMAIN-SUFFIX,bloomberg.com
+  - DOMAIN-SUFFIX,reuters.com
+  - DOMAIN-SUFFIX,apnews.com
+
+  # ===== 科技媒体 =====
+  - DOMAIN-SUFFIX,theverge.com
+  - DOMAIN-SUFFIX,techcrunch.com
+  - DOMAIN-SUFFIX,wired.com
+
+  # ===== 观点 / 深度 =====
+  - DOMAIN-SUFFIX,economist.com
+  - DOMAIN-SUFFIX,foreignaffairs.com
+
+  # ===== 港台媒体 =====
+  - DOMAIN-SUFFIX,rthk.hk
+  - DOMAIN-SUFFIX,hk01.com
+  - DOMAIN-SUFFIX,setn.com
+  - DOMAIN-SUFFIX,ettoday.net
+
+  # ===== 泛媒体平台 =====
+  - DOMAIN-SUFFIX,medium.com
+  - DOMAIN-SUFFIX,substack.com
+  - DOMAIN-SUFFIX,wordpress.com
+  - DOMAIN-SUFFIX,blogspot.com
+  - DOMAIN-SUFFIX,livejournal.com
+
+  # Media / static / short links
+  - DOMAIN-SUFFIX,t.co
+  - DOMAIN-SUFFIX,twimg.com
+  - DOMAIN-SUFFIX,twimg.co
+  - DOMAIN-SUFFIX,twimg.org
+  - DOMAIN-SUFFIX,twvid.com
+
+  # Legacy / ecosystem
+  - DOMAIN-SUFFIX,tweetdeck.com
+  - DOMAIN-SUFFIX,twitpic.com
+  - DOMAIN-SUFFIX,periscope.tv
+  - DOMAIN-SUFFIX,pscp.tv
+  - DOMAIN-SUFFIX,vine.co
+  - DOMAIN-SUFFIX,grok.com
+
+  # Corporate / community / auth
+  - DOMAIN-SUFFIX,twittercommunity.com
+  - DOMAIN-SUFFIX,twitteroauth.com
+  - DOMAIN-SUFFIX,twitterstat.us
+  - DOMAIN-SUFFIX,twitterinc.com
+
+  # Optional business / brand assets
+  - DOMAIN-SUFFIX,ads-twitter.com
+  - DOMAIN-SUFFIX,cms-twdigitalassets.com
+  - DOMAIN-SUFFIX,twitter.biz
+
+  # IP ranges
+  - IP-CIDR,69.195.160.0/19
+  - IP-CIDR,192.133.76.0/22
+  - IP-CIDR,199.59.148.0/22
+  - IP-CIDR,199.96.56.0/21
+  - IP-CIDR,202.160.128.0/22
+  - IP-CIDR,209.237.192.0/19

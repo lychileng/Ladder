@@ -1,0 +1,184 @@
+payload:
+  # Apple 主域
+  - DOMAIN-SUFFIX,apple.com
+  - DOMAIN-SUFFIX,apple.cn
+  - DOMAIN-SUFFIX,apple.com.cn
+  - DOMAIN-SUFFIX,aaplimg.com
+  - DOMAIN-SUFFIX,mzstatic.com
+  - DOMAIN-SUFFIX,cdn-apple.com
+  - DOMAIN-SUFFIX,apple-mapkit.com
+  - DOMAIN-SUFFIX,apple-cloudkit.com
+  - DOMAIN-SUFFIX,icloud.com
+  - DOMAIN-SUFFIX,icloud-content.com
+  - DOMAIN-SUFFIX,icloud-content.com.cn
+  - DOMAIN-SUFFIX,icloud.cn
+
+  # App Store / iTunes / 媒体分发
+  - DOMAIN,apps.apple.com
+  - DOMAIN,itunes.apple.com
+  - DOMAIN-SUFFIX,itunes.apple.com
+  - DOMAIN-SUFFIX,itunes-apple.com
+  - DOMAIN-SUFFIX,appstoreconnect.apple.com
+  - DOMAIN-SUFFIX,bag.itunes.apple.com
+  - DOMAIN-SUFFIX,client-api.itunes.apple.com
+  - DOMAIN-SUFFIX,search.itunes.apple.com
+  - DOMAIN-SUFFIX,play.itunes.apple.com
+  - DOMAIN-SUFFIX,se.itunes.apple.com
+  - DOMAIN-SUFFIX,se-edge.itunes.apple.com
+  - DOMAIN-SUFFIX,se2.itunes.apple.com
+  - DOMAIN-SUFFIX,upp.itunes.apple.com
+  - DOMAIN-SUFFIX,pd.itunes.apple.com
+  - DOMAIN-SUFFIX,bookkeeper.itunes.apple.com
+  - DOMAIN-SUFFIX,books.itunes.apple.com
+  - DOMAIN-SUFFIX,iosapps.itunes.apple.com
+  - DOMAIN-SUFFIX,osxapps.itunes.apple.com
+  - DOMAIN-SUFFIX,itcmobile.itunes.apple.com
+  - DOMAIN-SUFFIX,sandbox.itunes.apple.com
+  - DOMAIN-SUFFIX,uts-api.itunes.apple.com
+  - DOMAIN-SUFFIX,sf-api-token-service.itunes.apple.com
+
+  # Apple Music / TV / 媒体
+  - DOMAIN,music.apple.com
+  - DOMAIN-SUFFIX,music.apple.com
+  - DOMAIN-SUFFIX,beta.music.apple.com
+  - DOMAIN-SUFFIX,js-cdn.music.apple.com
+  - DOMAIN-SUFFIX,tv.applemusic.com
+  - DOMAIN-SUFFIX,hls.itunes.apple.com
+  - DOMAIN-SUFFIX,hls-amt.itunes.apple.com
+  - DOMAIN-SUFFIX,hls-svod.itunes.apple.com
+  - DOMAIN-SUFFIX,streamingaudio.itunes.apple.com
+  - DOMAIN-SUFFIX,aod.itunes.apple.com
+  - DOMAIN-SUFFIX,aod-ssl.itunes.apple.com
+  - DOMAIN-SUFFIX,audio.itunes.apple.com
+  - DOMAIN-SUFFIX,audio-ssl.itunes.apple.com
+  - DOMAIN-SUFFIX,mvod.itunes.apple.com
+  - DOMAIN-SUFFIX,np-edge.itunes.apple.com
+  - DOMAIN-SUFFIX,play-edge.itunes.apple.com
+
+  # iCloud / Private Relay / Find My
+  - DOMAIN-SUFFIX,gateway.icloud.com
+  - DOMAIN-SUFFIX,mask.icloud.com
+  - DOMAIN-SUFFIX,mask-api.icloud.com
+  - DOMAIN-SUFFIX,mask-h2.icloud.com
+  - DOMAIN-SUFFIX,mask.apple-dns.net
+  - DOMAIN-SUFFIX,mask-api.fe.apple-dns.net
+  - DOMAIN-SUFFIX,mask-t.apple-dns.net
+  - DOMAIN-SUFFIX,apple-dns.net
+  - DOMAIN-SUFFIX,apple-dns.com
+  - DOMAIN-SUFFIX,apple-dns.com.cn
+  - DOMAIN-SUFFIX,cdn.apple-cloudkit.com
+  - DOMAIN-SUFFIX,cvws.icloud-content.com
+  - DOMAIN-SUFFIX,fmfmobile.icloud.com
+  - DOMAIN-SUFFIX,fmipmobile.icloud.com
+  - DOMAIN-SUFFIX,statici.icloud.com
+  - DOMAIN-SUFFIX,icloud.cdn-apple.com
+
+  # Maps / Weather / Location
+  - DOMAIN,maps.apple.com
+  - DOMAIN-SUFFIX,maps.apple.com
+  - DOMAIN-SUFFIX,gs-loc.apple.com
+  - DOMAIN-SUFFIX,gs-loc-cn.apple.com
+  - DOMAIN-SUFFIX,weather-data.apple.com
+  - DOMAIN-SUFFIX,weather-map.apple.com
+  - DOMAIN-SUFFIX,weather-map2.apple.com
+  - DOMAIN-SUFFIX,weatherkit.apple.com
+  - DOMAIN-SUFFIX,cdn.apple-mapkit.com
+  - DOMAIN-SUFFIX,cdn1.apple-mapkit.com
+  - DOMAIN-SUFFIX,cdn2.apple-mapkit.com
+  - DOMAIN-SUFFIX,cdn3.apple-mapkit.com
+  - DOMAIN-SUFFIX,cdn4.apple-mapkit.com
+  - DOMAIN-SUFFIX,cdn-cn1.apple-mapkit.com
+  - DOMAIN-SUFFIX,cdn-cn2.apple-mapkit.com
+  - DOMAIN-SUFFIX,cdn-cn3.apple-mapkit.com
+  - DOMAIN-SUFFIX,cdn-cn4.apple-mapkit.com
+
+  # Siri / 智能服务
+  - DOMAIN-SUFFIX,seed.siri.apple.com
+  - DOMAIN-SUFFIX,seed-swallow.siri.apple.com
+  - DOMAIN-SUFFIX,seed-sequoia.siri.apple.com
+  - DOMAIN-SUFFIX,probe.siri.apple.com
+  - DOMAIN-SUFFIX,guzzoni.apple.com
+  - DOMAIN-SUFFIX,guzzoni.smoot.apple.com
+  - DOMAIN-SUFFIX,swallow.apple.com
+  - DOMAIN-SUFFIX,sequoia.apple.com
+  - DOMAIN-SUFFIX,api-p-ap-c.smoot.apple.com
+  - DOMAIN-SUFFIX,api-p-ap-d.smoot.apple.com
+  - DOMAIN-SUFFIX,api-p-ap-e.smoot.apple.com
+  - DOMAIN-SUFFIX,api-glb-sea.smoot.apple.com
+  - DOMAIN-SUFFIX,api.smoot.apple.cn
+
+  # Push / Device / 系统服务
+  - DOMAIN-SUFFIX,push.apple.com
+  - DOMAIN-SUFFIX,push-apple.com
+  - DOMAIN-SUFFIX,courier-push-apple.com
+  - DOMAIN-SUFFIX,init.push.apple.com
+  - DOMAIN-SUFFIX,init.ess.apple.com
+  - DOMAIN-SUFFIX,configuration.apple.com
+  - DOMAIN-SUFFIX,static.gc.apple.com
+  - DOMAIN-SUFFIX,smp-device-content.apple.com
+  - DOMAIN-KEYWORD,smp-device
+
+  # 系统更新 / 下载 / 软件分发
+  - DOMAIN-SUFFIX,swcdn.apple.com
+  - DOMAIN-SUFFIX,swdist.apple.com
+  - DOMAIN-SUFFIX,swscan.apple.com
+  - DOMAIN-SUFFIX,swcatalog.apple.com
+  - DOMAIN-SUFFIX,mesu.apple.com
+  - DOMAIN-SUFFIX,updates.cdn-apple.com
+  - DOMAIN-SUFFIX,updates-http.cdn-apple.com
+  - DOMAIN-SUFFIX,oscdn.apple.com
+  - DOMAIN-SUFFIX,supportdownload.apple.com
+  - DOMAIN-SUFFIX,download.developer.apple.com
+  - DOMAIN-SUFFIX,adcdownload.apple.com
+  - DOMAIN-SUFFIX,appldnld.apple.com
+  - DOMAIN-SUFFIX,appldnld.g.aaplimg.com
+  - DOMAIN-SUFFIX,iphone-ld.apple.com
+  - DOMAIN-SUFFIX,ipcdn.apple.com
+
+  # Apple ID / 登录 / 证书校验
+  - DOMAIN-SUFFIX,appleid.cdn-apple.com
+  - DOMAIN-SUFFIX,appleid.apple.com
+  - DOMAIN-SUFFIX,clientflow.apple.com
+  - DOMAIN-SUFFIX,valid.apple.com
+  - DOMAIN-SUFFIX,ppq.apple.com
+  - DOMAIN-SUFFIX,certs.apple.com
+  - DOMAIN-SUFFIX,crl.apple.com
+  - DOMAIN-SUFFIX,ocsp.apple.com
+  - DOMAIN-SUFFIX,ocsp2.apple.com
+
+  # Developer / TestFlight / 文档
+  - DOMAIN-SUFFIX,developer.apple.com
+  - DOMAIN-SUFFIX,developerservices2.apple.com
+  - DOMAIN-SUFFIX,docs-assets.developer.apple.com
+  - DOMAIN-SUFFIX,devimages-cdn.apple.com
+  - DOMAIN-SUFFIX,devstreaming-cdn.apple.com
+  - DOMAIN-SUFFIX,testflight.apple.com
+  - DOMAIN-KEYWORD,testflight
+
+  # News / Shazam / Books / 其他服务
+  - DOMAIN-SUFFIX,news.apple.com
+  - DOMAIN-SUFFIX,news-client.apple.com
+  - DOMAIN-SUFFIX,news-client-search.apple.com
+  - DOMAIN-SUFFIX,news-assets.apple.com
+  - DOMAIN-SUFFIX,news-edge.apple.com
+  - DOMAIN-SUFFIX,news-events.apple.com
+  - DOMAIN-SUFFIX,shazam.com
+  - DOMAIN-SUFFIX,books.apple.com
+  - DOMAIN-SUFFIX,stocks-sparkline.apple.com
+
+  # Apple 常见 CDN / 边缘别名
+  - DOMAIN-SUFFIX,akadns.net
+  - DOMAIN-KEYWORD,apple.com.akadns.net
+  - DOMAIN-KEYWORD,apple.com.edgekey.net
+  - DOMAIN-KEYWORD,icloud.com.akadns.net
+  - DOMAIN-KEYWORD,apple-support.akadns.net
+
+  # 少量 wildcard：只保留明确有实际意义的
+  - DOMAIN-WILDCARD,init*.push.apple.com
+  - DOMAIN-WILDCARD,init*.push-apple.com.akadns.net
+  - DOMAIN-WILDCARD,*-content.icloud.com.cn
+
+  # Testflight
+  - DOMAIN,beta.apple.com
+  - DOMAIN,testflight.apple.com
+  - DOMAIN-KEYWORD,testflight

@@ -1,0 +1,51 @@
+payload:
+  # ===== 常见广告 / 跳转 / click 域 =====
+  - DOMAIN-KEYWORD,adservice
+  - DOMAIN-KEYWORD,adserver
+  - DOMAIN-KEYWORD,adtrack
+  - DOMAIN-KEYWORD,adclick
+  - DOMAIN-KEYWORD,tracking
+  - DOMAIN-KEYWORD,tracker
+  - DOMAIN-KEYWORD,analytics
+  - DOMAIN-KEYWORD,statistic
+  - DOMAIN-KEYWORD,telemetry
+  - DOMAIN-KEYWORD,metrics
+
+  # ===== 通用广告后缀（高命中，低误伤）=====
+  - DOMAIN-SUFFIX,doubleclick.net
+  - DOMAIN-SUFFIX,googlesyndication.com
+  - DOMAIN-SUFFIX,googleadservices.com
+  - DOMAIN-SUFFIX,adnxs.com
+  - DOMAIN-SUFFIX,criteo.com
+  - DOMAIN-SUFFIX,taboola.com
+  - DOMAIN-SUFFIX,outbrain.com
+
+  # ===== 常见追踪/埋点平台（克制版）=====
+  - DOMAIN-SUFFIX,adjust.com
+  - DOMAIN-SUFFIX,appsflyer.com
+  - DOMAIN-SUFFIX,branch.io
+  - DOMAIN-SUFFIX,kochava.com
+
+  # ===== CDN型广告（精选，避免污染）=====
+  - DOMAIN-SUFFIX,ads-twitter.com
+  - DOMAIN-SUFFIX,ads.linkedin.com
+
+  # ===== App内广告SDK常见域 =====
+  - DOMAIN-SUFFIX,unityads.unity3d.com
+  - DOMAIN-SUFFIX,chartboost.com
+  - DOMAIN-SUFFIX,applovin.com
+  - DOMAIN-SUFFIX,vungle.com
+
+  # ===== 国内广告网络（精选）=====
+  - DOMAIN-SUFFIX,admob.com
+  - DOMAIN-SUFFIX,umeng.com
+  - DOMAIN-SUFFIX,umtrack.com
+  - DOMAIN-SUFFIX,baidustatic.com
+  - DOMAIN-SUFFIX,baiduad.com
+  - DOMAIN-SUFFIX,baidubce.com
+
+  # ===== 明确广告/垃圾TLD（高置信）=====
+  - DOMAIN-SUFFIX,click
+  - DOMAIN-SUFFIX,top
+  - DOMAIN-SUFFIX,xyz
+  - DOMAIN-SUFFIX,icu

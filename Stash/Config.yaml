@@ -175,10 +175,10 @@ dns:
       - "+.gvt1.com"
 
 proxy-providers:
-  Provider_Name:
+  CMY.L:
     type: http
-    url: <subscription_url> # 替换链接
-    path: ./proxy_provider/provider_name.yaml # 本地缓存路径，便于离线查看和调试
+    url: https://ccsub.pz.pe/subscribe/K1N1AQ58UANHOPYP?clash=ssr&trojan
+    path: ./proxy_provider/cmy.l.yaml # 可选：本地缓存路径，便于离线查看和调试
     interval: 3600
     health-check:
       enable: true
@@ -187,69 +187,87 @@ proxy-providers:
 
 proxy-groups:
   - name: Rule-AI
+  - name: Rule-AI
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/openai.png
     proxies:
-      - Nodes-AI 🏳️
-      - Nodes-TW 🇼🇸
-      - Nodes-SG 🇸🇬
-      - Nodes-JP 🇯🇵
+      - Nodes 🇺🇳 AI
+      - Nodes 🇼🇸 TW
+      - Nodes 🇸🇬 SG
+      - Nodes 🇯🇵 JP
 
+  - name: Rule-SNS
   - name: Rule-SNS
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/telegram.png
     proxies:
-      - Nodes-HK 🇭🇰
-      - Nodes-TW 🇼🇸
-      - Nodes-SG 🇸🇬
-      - Nodes-JP 🇯🇵
-      - Nodes-KR 🇰🇷
-      - Nodes-US 🇺🇸
-      - Nodes-EU 🇪🇺
+      - Nodes 🇭🇰 HK
+      - Nodes 🇼🇸 TW
+      - Nodes 🇸🇬 SG
+      - Nodes 🇯🇵 JP
+      - Nodes 🇰🇷 KR
+      - Nodes 🇺🇸 US
+      - Nodes 🇪🇺 EU
 
+  - name: Rule-Stream
   - name: Rule-Stream
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/youtube.png
     proxies:
-      - Nodes-HK 🇭🇰
-      - Nodes-TW 🇼🇸
-      - Nodes-SG 🇸🇬
-      - Nodes-JP 🇯🇵
-      - Nodes-KR 🇰🇷
-      - Nodes-US 🇺🇸
-      - Nodes-EU 🇪🇺
+      - Nodes 🇭🇰 HK
+      - Nodes 🇼🇸 TW
+      - Nodes 🇸🇬 SG
+      - Nodes 🇯🇵 JP
+      - Nodes 🇰🇷 KR
+      - Nodes 🇺🇸 US
+      - Nodes 🇪🇺 EU
 
+  - name: Rule-Crypto
   - name: Rule-Crypto
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/bitcoin.png
     proxies:
       - DIRECT
-      - Nodes-HK 🇭🇰
-      - Nodes-TW 🇼🇸
-      - Nodes-SG 🇸🇬
+      - Nodes 🇭🇰 HK
+      - Nodes 🇼🇸 TW
+      - Nodes 🇸🇬 SG
 
+  - name: Rule-Offshore
   - name: Rule-Offshore
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/hsbc.png
     proxies:
       - DIRECT
-      - Nodes-HK 🇭🇰
-      - Nodes-SG 🇸🇬
+      - Nodes 🇭🇰 HK
+      - Nodes 🇼🇸 TW
+      - Nodes 🇸🇬 SG
 
-  - name: Rule-Others
+  - name: Rule-Apple
+    type: select
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/apple.png
+    proxies:
+      - DIRECT
+      - Nodes 🇭🇰 HK
+      - Nodes 🇼🇸 TW
+      - Nodes 🇸🇬 SG
+      - Nodes 🇯🇵 JP
+      - Nodes 🇰🇷 KR
+      - Nodes 🇺🇸 US
+
+  - name: Rule-Global
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/global.png
     proxies:
       - DIRECT
-      - Nodes-HK 🇭🇰
-      - Nodes-TW 🇼🇸
-      - Nodes-SG 🇸🇬
-      - Nodes-JP 🇯🇵
-      - Nodes-KR 🇰🇷
-      - Nodes-US 🇺🇸
-      - Nodes-EU 🇪🇺
+      - Nodes 🇭🇰 HK
+      - Nodes 🇼🇸 TW
+      - Nodes 🇸🇬 SG
+      - Nodes 🇯🇵 JP
+      - Nodes 🇰🇷 KR
+      - Nodes 🇺🇸 US
+      - Nodes 🇪🇺 EU
 
-  - name: Nodes-AI 🏳️
+  - name: Nodes 🇺🇳 AI
     type: url-test
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/ai.png
     include-all: true
@@ -258,7 +276,7 @@ proxy-groups:
     lazy: true
     tolerance: 50
 
-  - name: Nodes-HK 🇭🇰
+  - name: Nodes 🇭🇰 HK
     type: url-test
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/HK.png
     include-all: true
@@ -267,16 +285,16 @@ proxy-groups:
     lazy: true
     tolerance: 50
 
-  - name: Nodes-TW 🇼🇸
+  - name: Nodes 🇼🇸 TW
     type: url-test
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/TW.png
     include-all: true
-    filter: "台|🇼🇸|TW|(?i)Taiwan"
+    filter: "台|🇼🇸|🇹🇼|TW|(?i)Taiwan"
     interval: 300
     lazy: true
     tolerance: 50
 
-  - name: Nodes-SG 🇸🇬
+  - name: Nodes 🇸🇬 SG
     type: url-test
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/SG.png
     include-all: true
@@ -285,7 +303,7 @@ proxy-groups:
     lazy: true
     tolerance: 50
 
-  - name: Nodes-JP 🇯🇵
+  - name: Nodes 🇯🇵 JP
     type: url-test
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/JP.png
     include-all: true
@@ -294,7 +312,7 @@ proxy-groups:
     lazy: true
     tolerance: 50
 
-  - name: Nodes-KR 🇰🇷
+  - name: Nodes 🇰🇷 KR
     type: url-test
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/KR.png
     include-all: true
@@ -303,7 +321,7 @@ proxy-groups:
     lazy: true
     tolerance: 50
 
-  - name: Nodes-US 🇺🇸
+  - name: Nodes 🇺🇸 US
     type: url-test
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/US.png
     include-all: true
@@ -312,7 +330,7 @@ proxy-groups:
     lazy: true
     tolerance: 50
 
-  - name: Nodes-EU 🇪🇺
+  - name: Nodes 🇪🇺 EU
     type: url-test
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/EU.png
     include-all: true
@@ -350,25 +368,39 @@ rule-providers:
     path: ./rules/crypto.yaml
     interval: 86400
 
-  Media:
+  Apple:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Media.yaml
-    path: ./rules/media.yaml
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Apple.yaml
+    path: ./rules/apple.yaml
     interval: 86400
 
-  Telegram:
+  Microsoft:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Telegram/Telegram.yaml
-    path: ./rules/telegram.yaml
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Microsoft.yaml
+    path: ./rules/microsoft.yaml
     interval: 86400
 
-  Twitter:
+  GlobalMedia:
     type: http
     behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Twitter/Twitter.yaml
-    path: ./rules/twitter.yaml
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/GlobalMedia.yaml
+    path: ./rules/globalmedia.yaml
+    interval: 86400
+
+  SNS:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/SNS.yaml
+    path: ./rules/sns.yaml
+    interval: 86400
+
+  Nike:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Nike.yaml
+    path: ./rules/nike.yaml
     interval: 86400
 
   Speedtest:
@@ -378,10 +410,17 @@ rule-providers:
     path: ./rules/speedtest.yaml
     interval: 86400
 
+  Advertising:
+    type: http
+    behavior: classical
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/AdvertisingLite.yaml
+    path: ./rules/advertising.yaml
+    interval: 86400
+
 rules:
   # 订阅服务自身直连
-  - DOMAIN-KEYWORD,cmy.network,DIRECT
-  - DOMAIN-KEYWORD,cmsub.com,DIRECT
+  - DOMAIN-SUFFIX,cmynetwork.com,DIRECT
+  - DOMAIN-SUFFIX,cmsub.com,DIRECT
   - DOMAIN-SUFFIX,ccsub.pz.pe,DIRECT
 
   # Crypto
@@ -389,12 +428,16 @@ rules:
   - DOMAIN-SUFFIX,wiz.money,Rule-Crypto
   - DOMAIN-SUFFIX,syncbits.com,Rule-Crypto
   - DOMAIN-SUFFIX,coinmarketcap.com,Rule-Crypto
+  - DOMAIN-SUFFIX,bnbstatic.com,Rule-Crypto
+  - DOMAIN-SUFFIX,wiz.money,Rule-Crypto
+  - DOMAIN-SUFFIX,syncbits.com,Rule-Crypto
+  - DOMAIN-SUFFIX,coinmarketcap.com,Rule-Crypto
 
   # GitHub / Dev
-  - DOMAIN-SUFFIX,github.com,Rule-Others
-  - DOMAIN-SUFFIX,githubusercontent.com,Rule-Others
-  - DOMAIN-SUFFIX,githubassets.com,Rule-Others
-  - DOMAIN-KEYWORD,github,Rule-Others
+  - DOMAIN-SUFFIX,github.com,Rule-Global
+  - DOMAIN-SUFFIX,githubusercontent.com,Rule-Global
+  - DOMAIN-SUFFIX,githubassets.com,Rule-Global
+  - DOMAIN-KEYWORD,github,Rule-Global
 
   # Lichess
   - DOMAIN-SUFFIX,lichess.org,DIRECT
@@ -404,8 +447,13 @@ rules:
   - DOMAIN-SUFFIX,fotmob.com,Rule-Stream
   - DOMAIN-SUFFIX,ft.com,Rule-Stream
   - DOMAIN-KEYWORD,ftchinese,Rule-Stream
+  - DOMAIN-SUFFIX,fotmob.com,Rule-Stream
+  - DOMAIN-SUFFIX,ft.com,Rule-Stream
+  - DOMAIN-KEYWORD,ftchinese,Rule-Stream
 
   # Discord
+  - DOMAIN-SUFFIX,discord.com,Rule-SNS
+  - DOMAIN-SUFFIX,discordapp.com,Rule-SNS
   - DOMAIN-SUFFIX,discord.com,Rule-SNS
   - DOMAIN-SUFFIX,discordapp.com,Rule-SNS
 
@@ -415,18 +463,21 @@ rules:
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
 
   # 远程规则接入
-  - RULE-SET,Mainland,DIRECT
   - RULE-SET,AI,Rule-AI
   - RULE-SET,Offshore,Rule-Offshore
-  - RULE-SET,Crypto,Rule-Crypto  
-  - RULE-SET,Media,Rule-Stream
-  - RULE-SET,Telegram,Rule-SNS
-  - RULE-SET,Twitter,Rule-SNS
-  - RULE-SET,Speedtest,Rule-Others
+  - RULE-SET,Crypto,Rule-Crypto
+  - RULE-SET,Apple,Rule-Apple
+  - RULE-SET,Microsoft,Rule-Global
+  - RULE-SET,GlobalMedia,Rule-Stream
+  - RULE-SET,SNS,Rule-SNS
+  - RULE-SET,Nike,Rule-Global
+  - RULE-SET,Speedtest,Rule-Global
+  - RULE-SET,Mainland,DIRECT
+  - RULE-SET,Advertising,REJECT
 
   # Geo
   - GEOIP,LAN,DIRECT,no-resolve
   - GEOIP,CN,DIRECT,no-resolve
 
   # Final
-  - MATCH,Rule-Others
+  - MATCH,Rule-Global
