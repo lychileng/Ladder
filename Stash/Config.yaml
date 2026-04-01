@@ -1,4 +1,4 @@
-# Stash 配置（稳妥 / 高性能 / 高灵活性整理版）
+# Optimized Stash Config
 mixed-port: 7890
 redir-port: 7892
 allow-lan: false
@@ -6,7 +6,7 @@ ipv6: true
 mode: Rule
 log-level: warning
 
-# 仅监听本机，避免 REST API 暴露到局域网 / 公网
+# Listen on localhost only, avoid REST API exposure to LAN/WAN
 external-controller: 127.0.0.1:9090
 secret: "hello,world"
 
@@ -17,7 +17,7 @@ profile:
 sniffer:
   enable: true
   override-destination: true
-  # 为了稳定性，关闭纯 IP 反查；保留常规 TLS/HTTP/QUIC 嗅探
+  # For stability, disable pure IP reverse lookup, keep regular TLS/HTTP/QUIC sniffing
   parse-pure-ip: false
   force-dns-mapping: true
   sniff:
@@ -48,7 +48,7 @@ tun:
   auto-detect-interface: true
   auto-route: true
   auto-redirect: true
-  # 兼容性优先，保留 false；若你后续特别在意“绝不漏流量”，可再切到 true 测试
+  # Keep "false" for compatibility, switch to "true" for testing if encounter issues with certain services
   strict-route: false
   endpoint-independent-nat: true
 
@@ -60,7 +60,7 @@ dns:
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
 
-  # 只保留真正需要绕过 fake-ip 的系统 / 局域网 / 时间同步 / 音乐 / 主机联机域名
+  # Only keep domains that truly require bypassing fake-ip
   fake-ip-filter:
     - "*.lan"
     - "*.local"
@@ -127,7 +127,7 @@ dns:
     - "*.music.migu.cn"
     - "music.migu.cn"
 
-  # 启动阶段只用纯 IP DNS，避免 bootstrap 死循环
+  # Use pure IP DNS during startup phase to avoid bootstrap dead loop
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
@@ -136,14 +136,14 @@ dns:
     - 2400:3200::1
     - 2606:4700:4700::1111
 
-  # 主解析：国内 + 国外混合，兼顾大陆域名速度与海外域名可用性
+  # Use DoH for both domestic and international domains, balancing speed for domestic and reliability
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
 
-  # 解析代理节点域名时，优先使用稳定直连 DNS
+  # For resolving proxy node domains, prioritize stable direct DNS to avoid potential DoH issues
   proxy-server-nameserver:
     - 223.5.5.5
     - 119.29.29.29
@@ -151,7 +151,6 @@ dns:
     # - https://doh.pub/dns-query
     # - https://cloudflare-dns.com/dns-query
 
-  # 明确补上 fallback，避免 fallback-filter 成为“空逻辑”
   fallback:
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
@@ -175,10 +174,10 @@ dns:
       - "+.gvt1.com"
 
 proxy-providers:
-  ProviderName:
+  CMY.L:
     type: http
-    url: <subscription_url> # 必选：订阅链接，支持 Clash 兼容的 HTTP(S) 订阅
-    path: ./proxy_provider/providername.yaml # 可选：本地缓存路径，便于离线查看和调试
+    url: <subscription_url> # Replace with actual subscription URL
+    path: ./proxy_provider/cmy.l.yaml # Optional, for local caching
     interval: 3600
     health-check:
       enable: true
@@ -186,7 +185,6 @@ proxy-providers:
       interval: 600
 
 proxy-groups:
-  - name: Rule-AI
   - name: Rule-AI
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/openai.png
@@ -196,7 +194,6 @@ proxy-groups:
       - Nodes 🇸🇬 SG
       - Nodes 🇯🇵 JP
 
-  - name: Rule-SNS
   - name: Rule-SNS
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/telegram.png
@@ -210,7 +207,6 @@ proxy-groups:
       - Nodes 🇪🇺 EU
 
   - name: Rule-Stream
-  - name: Rule-Stream
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/youtube.png
     proxies:
@@ -223,7 +219,6 @@ proxy-groups:
       - Nodes 🇪🇺 EU
 
   - name: Rule-Crypto
-  - name: Rule-Crypto
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/bitcoin.png
     proxies:
@@ -232,7 +227,6 @@ proxy-groups:
       - Nodes 🇼🇸 TW
       - Nodes 🇸🇬 SG
 
-  - name: Rule-Offshore
   - name: Rule-Offshore
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/hsbc.png
@@ -418,51 +412,34 @@ rule-providers:
     interval: 86400
 
 rules:
-  # 订阅服务自身直连
+  # Local Rules
   - DOMAIN-SUFFIX,cmynetwork.com,DIRECT
   - DOMAIN-SUFFIX,cmsub.com,DIRECT
   - DOMAIN-SUFFIX,ccsub.pz.pe,DIRECT
 
-  # Crypto
-  - DOMAIN-SUFFIX,bnbstatic.com,Rule-Crypto
-  - DOMAIN-SUFFIX,wiz.money,Rule-Crypto
-  - DOMAIN-SUFFIX,syncbits.com,Rule-Crypto
-  - DOMAIN-SUFFIX,coinmarketcap.com,Rule-Crypto
-  - DOMAIN-SUFFIX,bnbstatic.com,Rule-Crypto
-  - DOMAIN-SUFFIX,wiz.money,Rule-Crypto
-  - DOMAIN-SUFFIX,syncbits.com,Rule-Crypto
-  - DOMAIN-SUFFIX,coinmarketcap.com,Rule-Crypto
+  - DOMAIN,api.binance.com,DIRECT
+  - DOMAIN-SUFFIX,binance.com,DIRECT
+  - DOMAIN-SUFFIX,binance.org,DIRECT
 
-  # GitHub / Dev
+  - DOMAIN-SUFFIX,fiat24.com,DIRECT
+
+  - DOMAIN-SUFFIX,wiz.money,Rule-Crypto
+
   - DOMAIN-SUFFIX,github.com,Rule-Global
   - DOMAIN-SUFFIX,githubusercontent.com,Rule-Global
   - DOMAIN-SUFFIX,githubassets.com,Rule-Global
-  - DOMAIN-KEYWORD,github,Rule-Global
 
-  # Lichess
   - DOMAIN-SUFFIX,lichess.org,DIRECT
-  - DOMAIN-KEYWORD,lichess,DIRECT
 
-  # 媒体
-  - DOMAIN-SUFFIX,fotmob.com,Rule-Stream
-  - DOMAIN-SUFFIX,ft.com,Rule-Stream
-  - DOMAIN-KEYWORD,ftchinese,Rule-Stream
   - DOMAIN-SUFFIX,fotmob.com,Rule-Stream
   - DOMAIN-SUFFIX,ft.com,Rule-Stream
   - DOMAIN-KEYWORD,ftchinese,Rule-Stream
 
-  # Discord
-  - DOMAIN-SUFFIX,discord.com,Rule-SNS
-  - DOMAIN-SUFFIX,discordapp.com,Rule-SNS
-  - DOMAIN-SUFFIX,discord.com,Rule-SNS
-  - DOMAIN-SUFFIX,discordapp.com,Rule-SNS
-
-  # 内网
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
 
-  # 远程规则接入
+  # Remote Rules
   - RULE-SET,AI,Rule-AI
   - RULE-SET,Offshore,Rule-Offshore
   - RULE-SET,Crypto,Rule-Crypto
