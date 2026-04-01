@@ -1,4 +1,4 @@
-parload:
+payload:
   # NAME: Nike
   - DOMAIN-SUFFIX,nike.com
   - DOMAIN-SUFFIX,nikecdn.com
