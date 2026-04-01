@@ -16,7 +16,6 @@ payload:
   - DOMAIN-SUFFIX,safepal.com
   - DOMAIN-SUFFIX,safepal.io
   - DOMAIN-SUFFIX,safepalwallet.com
-  - DOMAIN-KEYWORD,safepal
 
   # Ready
   - DOMAIN-SUFFIX,ready.co
@@ -29,7 +28,7 @@ payload:
 
   # Kraken
   - DOMAIN-SUFFIX,kraken.com
-  - DOMAIN-KEYWORD,kraken.com
+  - DOMAIN-KEYWORD,kraken
 
   # Backpack
   - DOMAIN-SUFFIX,backpack.exchange
@@ -41,11 +40,9 @@ payload:
 
   # Bitget
   - DOMAIN-SUFFIX,bitget.com
-  - DOMAIN-KEYWORD,bitget.com
 
   # Kiln
   - DOMAIN-SUFFIX,kiln.fi
-  - DOMAIN-KEYWORD,kiln.fi
 
   # Others
   - DOMAIN-SUFFIX,syncbits.com
