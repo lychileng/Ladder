@@ -175,10 +175,10 @@ dns:
       - "+.gvt1.com"
 
 proxy-providers:
-  CMY.L:
+  ProviderName:
     type: http
-    url: https://ccsub.pz.pe/subscribe/K1N1AQ58UANHOPYP?clash=ssr&trojan
-    path: ./proxy_provider/cmy.l.yaml # 可选：本地缓存路径，便于离线查看和调试
+    url: <subscription_url> # 必选：订阅链接，支持 Clash 兼容的 HTTP(S) 订阅
+    path: ./proxy_provider/providername.yaml # 可选：本地缓存路径，便于离线查看和调试
     interval: 3600
     health-check:
       enable: true
