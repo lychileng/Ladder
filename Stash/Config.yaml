@@ -139,7 +139,6 @@ dns:
   # Use DoH for both domestic and international domains, balancing speed for domestic and reliability
   nameserver:
     - https://dns.alidns.com/dns-query
-    - https://doh.pub/dns-query
     - https://cloudflare-dns.com/dns-query
     - https://dns.google/dns-query
 
@@ -174,14 +173,14 @@ dns:
       - "+.gvt1.com"
 
 proxy-providers:
-  Tag:
+  CMY.L:
     type: http
-    url: <subscription_url> # Replace with actual subscription URL
-    path: ./proxy_provider/tag.yaml # Optional, for local caching
+    url: <Replace with actual subscription URL>
+    path: ./proxy_provider/cmy.l.yaml # Optional, for local caching
     interval: 3600
     health-check:
       enable: true
-      url: https://cp.cloudflare.com/generate_204
+      url: http://www.gstatic.com/generate_204
       interval: 600
 
 proxy-groups:
@@ -406,7 +405,7 @@ rule-providers:
 
 rules:
   # Local Rules
-  - DOMAIN-SUFFIX,cmynetwork.com,DIRECT
+  - DOMAIN-SUFFIX,cmynetwork.com,Rules 🎯 Final
   - DOMAIN-SUFFIX,cmsub.com,DIRECT
   - DOMAIN-SUFFIX,ccsub.pz.pe,DIRECT
 
