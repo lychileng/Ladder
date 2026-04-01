@@ -174,10 +174,10 @@ dns:
       - "+.gvt1.com"
 
 proxy-providers:
-  CMY.L:
+  Tag:
     type: http
     url: <subscription_url> # Replace with actual subscription URL
-    path: ./proxy_provider/cmy.l.yaml # Optional, for local caching
+    path: ./proxy_provider/tag.yaml # Optional, for local caching
     interval: 3600
     health-check:
       enable: true
@@ -185,7 +185,7 @@ proxy-providers:
       interval: 600
 
 proxy-groups:
-  - name: Rule-AI
+  - name: Rules 🎯 AI
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/openai.png
     proxies:
@@ -194,7 +194,7 @@ proxy-groups:
       - Nodes 🇸🇬 SG
       - Nodes 🇯🇵 JP
 
-  - name: Rule-SNS
+  - name: Rules 🎯 Social
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/telegram.png
     proxies:
@@ -206,7 +206,7 @@ proxy-groups:
       - Nodes 🇺🇸 US
       - Nodes 🇪🇺 EU
 
-  - name: Rule-Stream
+  - name: Rules 🎯 Stream
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/youtube.png
     proxies:
@@ -218,7 +218,7 @@ proxy-groups:
       - Nodes 🇺🇸 US
       - Nodes 🇪🇺 EU
 
-  - name: Rule-Crypto
+  - name: Rules 🎯 Crypto
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/bitcoin.png
     proxies:
@@ -227,7 +227,7 @@ proxy-groups:
       - Nodes 🇼🇸 TW
       - Nodes 🇸🇬 SG
 
-  - name: Rule-Offshore
+  - name: Rules 🎯 Offshore
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/hsbc.png
     proxies:
@@ -236,7 +236,7 @@ proxy-groups:
       - Nodes 🇼🇸 TW
       - Nodes 🇸🇬 SG
 
-  - name: Rule-Apple
+  - name: Rules 🎯 Apple
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/apple.png
     proxies:
@@ -248,7 +248,7 @@ proxy-groups:
       - Nodes 🇰🇷 KR
       - Nodes 🇺🇸 US
 
-  - name: Rule-Global
+  - name: Rules 🎯 Final
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/global.png
     proxies:
@@ -397,13 +397,6 @@ rule-providers:
     path: ./rules/nike.yaml
     interval: 86400
 
-  Speedtest:
-    type: http
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Speedtest/Speedtest.yaml
-    path: ./rules/speedtest.yaml
-    interval: 86400
-
   Advertising:
     type: http
     behavior: classical
@@ -423,38 +416,37 @@ rules:
 
   - DOMAIN-SUFFIX,fiat24.com,DIRECT
 
-  - DOMAIN-SUFFIX,wiz.money,Rule-Crypto
+  - DOMAIN-SUFFIX,wiz.money,Rules 🎯 Crypto
 
-  - DOMAIN-SUFFIX,github.com,Rule-Global
-  - DOMAIN-SUFFIX,githubusercontent.com,Rule-Global
-  - DOMAIN-SUFFIX,githubassets.com,Rule-Global
+  - DOMAIN-SUFFIX,github.com,Rules 🎯 AI
+  - DOMAIN-SUFFIX,githubusercontent.com,Rules 🎯 AI
+  - DOMAIN-SUFFIX,githubassets.com,Rules 🎯 AI
 
   - DOMAIN-SUFFIX,lichess.org,DIRECT
 
-  - DOMAIN-SUFFIX,fotmob.com,Rule-Stream
-  - DOMAIN-SUFFIX,ft.com,Rule-Stream
-  - DOMAIN-KEYWORD,ftchinese,Rule-Stream
+  - DOMAIN-SUFFIX,fotmob.com,Rules 🎯 Stream
+  - DOMAIN-SUFFIX,ft.com,Rules 🎯 Stream
+  - DOMAIN-KEYWORD,ftchinese,Rules 🎯 Stream
 
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
 
   # Remote Rules
-  - RULE-SET,AI,Rule-AI
-  - RULE-SET,Offshore,Rule-Offshore
-  - RULE-SET,Crypto,Rule-Crypto
-  - RULE-SET,Apple,Rule-Apple
-  - RULE-SET,Microsoft,Rule-Global
-  - RULE-SET,GlobalMedia,Rule-Stream
-  - RULE-SET,SNS,Rule-SNS
-  - RULE-SET,Nike,Rule-Global
-  - RULE-SET,Speedtest,Rule-Global
+  - RULE-SET,AI,Rules 🎯 AI
+  - RULE-SET,Offshore,Rules 🎯 Offshore
+  - RULE-SET,Crypto,Rules 🎯 Crypto
+  - RULE-SET,Apple,Rules 🎯 Apple
+  - RULE-SET,Microsoft,Rules 🎯 Apple
+  - RULE-SET,GlobalMedia,Rules 🎯 Stream
+  - RULE-SET,SNS,Rules 🎯 Social
+  - RULE-SET,Nike,Nodes 🇭🇰 HK
   - RULE-SET,Mainland,DIRECT
-  - RULE-SET,Advertising,REJECT
+  # - RULE-SET,Advertising,REJECT
 
   # Geo
   - GEOIP,LAN,DIRECT,no-resolve
   - GEOIP,CN,DIRECT,no-resolve
 
   # Final
-  - MATCH,Rule-Global
+  - MATCH,Rules 🎯 Final
