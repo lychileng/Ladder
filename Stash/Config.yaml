@@ -221,37 +221,36 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/bitcoin.png
     proxies:
-      - DIRECT
       - Nodes 🇭🇰 HK
       - Nodes 🇼🇸 TW
       - Nodes 🇸🇬 SG
+      - DIRECT
 
   - name: Rules 🎯 Offshore
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/hsbc.png
     proxies:
-      - DIRECT
       - Nodes 🇭🇰 HK
       - Nodes 🇼🇸 TW
       - Nodes 🇸🇬 SG
+      - DIRECT
 
   - name: Rules 🎯 Apple
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/apple.png
     proxies:
-      - DIRECT
       - Nodes 🇭🇰 HK
       - Nodes 🇼🇸 TW
       - Nodes 🇸🇬 SG
       - Nodes 🇯🇵 JP
       - Nodes 🇰🇷 KR
       - Nodes 🇺🇸 US
+      - DIRECT
 
   - name: Rules 🎯 Final
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/global.png
     proxies:
-      - DIRECT
       - Nodes 🇭🇰 HK
       - Nodes 🇼🇸 TW
       - Nodes 🇸🇬 SG
@@ -259,6 +258,7 @@ proxy-groups:
       - Nodes 🇰🇷 KR
       - Nodes 🇺🇸 US
       - Nodes 🇪🇺 EU
+      - DIRECT
 
   - name: Nodes 🇺🇳 AI
     type: url-test
