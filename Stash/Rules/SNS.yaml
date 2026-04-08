@@ -102,6 +102,30 @@ payload:
   - PROCESS-NAME,X
   - PROCESS-NAME,Twitter
   - PROCESS-NAME,com.atebits.Tweetie2
+  # Media / static / short links
+  - DOMAIN-SUFFIX,t.co
+  - DOMAIN-SUFFIX,pbs.twimg.com
+  - DOMAIN-SUFFIX,video.twimg.com
+  - DOMAIN-SUFFIX,twimg.com
+  - DOMAIN-SUFFIX,twimg.co
+  - DOMAIN-SUFFIX,twimg.org
+  - DOMAIN-SUFFIX,twvid.com
+  # Legacy / ecosystem
+  - DOMAIN-SUFFIX,tweetdeck.com
+  - DOMAIN-SUFFIX,twitpic.com
+  - DOMAIN-SUFFIX,periscope.tv
+  - DOMAIN-SUFFIX,pscp.tv
+  - DOMAIN-SUFFIX,vine.co
+  - DOMAIN-SUFFIX,grok.com
+  # Corporate / community / auth
+  - DOMAIN-SUFFIX,twittercommunity.com
+  - DOMAIN-SUFFIX,twitteroauth.com
+  - DOMAIN-SUFFIX,twitterstat.us
+  - DOMAIN-SUFFIX,twitterinc.com
+  # Optional business / brand assets
+  - DOMAIN-SUFFIX,ads-twitter.com
+  - DOMAIN-SUFFIX,cms-twdigitalassets.com
+  - DOMAIN-SUFFIX,twitter.biz
 
   # Facebook
   - DOMAIN-SUFFIX,facebook.com
