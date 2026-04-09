@@ -60,6 +60,8 @@ payload:
   - DOMAIN-SUFFIX,onedrive.com
   - DOMAIN-SUFFIX,onedrive.net
   - DOMAIN-SUFFIX,1drv.ms
+  - DOMAIN-SUFFIX,cloud.microsoft
+  - DOMAIN-SUFFIX,clipchamp.com
 
   # ===== Outlook / 账号体系 =====
   - DOMAIN-SUFFIX,outlook.com
@@ -93,3 +95,10 @@ payload:
 
   # ===== 通配（仅保留必要）=====
   - DOMAIN-WILDCARD,onedrive.*
+
+  # ===== 补缺 =====
+  - DOMAIN-SUFFIX,trafficmanager.net
+  - DOMAIN-SUFFIX,msauth.net
+  - DOMAIN-SUFFIX,msidentity.com
+  - DOMAIN-SUFFIX,msecnd.net
+  - DOMAIN-SUFFIX,ms.com
