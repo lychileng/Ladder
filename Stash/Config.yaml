@@ -51,6 +51,11 @@ tun:
   # Keep "false" for compatibility, switch to "true" for testing if encounter issues with certain services
   strict-route: false
   endpoint-independent-nat: true
+  # Exclude common private network ranges to prevent potential routing issues
+  exclude-cidr:
+    - 192.168.0.0/16
+    - 10.0.0.0/8
+    - 172.16.0.0/12
 
 dns:
   enable: true
@@ -175,7 +180,7 @@ dns:
 proxy-providers:
   Tag:
     type: http
-    url: <Repalce with actual subscription URL>
+    url: <replace_with_actual_subscription_URL>
     path: ./proxy_provider/tag.yaml # Optional, for local caching
     interval: 3600
     health-check:
@@ -188,7 +193,7 @@ proxy-groups:
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/openai.png
     proxies:
-      - Nodes 🇺🇳 AI
+      - Nodes 🇪🇺 AI
       - Nodes 🇼🇸 TW
       - Nodes 🇸🇬 SG
       - Nodes 🇯🇵 JP
@@ -203,7 +208,7 @@ proxy-groups:
       - Nodes 🇯🇵 JP
       - Nodes 🇰🇷 KR
       - Nodes 🇺🇸 US
-      - Nodes 🇪🇺 EU
+      - Nodes 🇺🇳 WW
 
   - name: Rules 🎯 Stream
     type: select
@@ -215,7 +220,7 @@ proxy-groups:
       - Nodes 🇯🇵 JP
       - Nodes 🇰🇷 KR
       - Nodes 🇺🇸 US
-      - Nodes 🇪🇺 EU
+      - Nodes 🇺🇳 WW
 
   - name: Rules 🎯 Crypto
     type: select
@@ -257,12 +262,12 @@ proxy-groups:
       - Nodes 🇯🇵 JP
       - Nodes 🇰🇷 KR
       - Nodes 🇺🇸 US
-      - Nodes 🇪🇺 EU
+      - Nodes 🇺🇳 WW
       - DIRECT
 
-  - name: Nodes 🇺🇳 AI
+  - name: Nodes 🇪🇺 AI
     type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/ai.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/EU.png
     include-all: true
     filter: ".*AI.*"
     interval: 300
@@ -323,11 +328,11 @@ proxy-groups:
     lazy: true
     tolerance: 50
 
-  - name: Nodes 🇪🇺 EU
+  - name: Nodes 🇺🇳 WW
     type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/EU.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/WW.png
     include-all: true
-    filter: "英|法|德|荷|意|西|葡|瑞|挪|芬|EU|欧|(?i)Europe|London|Paris|Frankfurt|Amsterdam|Milan|Madrid"
+    filter: "^(?!.*(AI-Prime|美|US|USA|Japan|日|JP|Taiwan|台|TW|Singapore|新|SG|Korea|韩|韓|KR|(?i)Hong|港|HK)).*"
     interval: 300
     lazy: true
     tolerance: 50
@@ -438,9 +443,9 @@ rules:
   - RULE-SET,Apple,Rules 🎯 Apple
   - RULE-SET,Microsoft,Rules 🎯 Apple
   - RULE-SET,SNS,Rules 🎯 Social
-  - RULE-SET,Nike,Nodes 🇭🇰 HK
   - RULE-SET,Advertising,REJECT
   - RULE-SET,GlobalMedia,Rules 🎯 Stream
+  - RULE-SET,Nike,Nodes 🇭🇰 HK
   - RULE-SET,Mainland,DIRECT
 
   # Geo
