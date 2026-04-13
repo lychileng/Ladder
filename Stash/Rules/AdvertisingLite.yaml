@@ -13,8 +13,10 @@ payload:
 
   # ===== 通用广告后缀（高命中，低误伤）=====
   - DOMAIN-SUFFIX,doubleclick.net
+  - DOMAIN-SUFFIX,pagead2.googlesyndication.com
   - DOMAIN-SUFFIX,googlesyndication.com
   - DOMAIN-SUFFIX,googleadservices.com
+  - DOMAIN-SUFFIX,adtrafficquality.google
   - DOMAIN-SUFFIX,adnxs.com
   - DOMAIN-SUFFIX,criteo.com
   - DOMAIN-SUFFIX,taboola.com
