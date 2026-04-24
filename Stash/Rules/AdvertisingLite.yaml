@@ -6,10 +6,10 @@ payload:
   - DOMAIN-KEYWORD,adclick
   - DOMAIN-KEYWORD,statistic
   - DOMAIN-KEYWORD,tracker
-  # - DOMAIN-KEYWORD,tracking
-  # - DOMAIN-KEYWORD,analytics
-  # - DOMAIN-KEYWORD,telemetry
-  # - DOMAIN-KEYWORD,metrics
+  - DOMAIN-KEYWORD,tracking
+  - DOMAIN-KEYWORD,analytics
+  - DOMAIN-KEYWORD,telemetry
+  - DOMAIN-KEYWORD,metrics
 
   # ===== 通用广告后缀（高命中，低误伤）=====
   - DOMAIN-SUFFIX,doubleclick.net
@@ -21,6 +21,7 @@ payload:
   - DOMAIN-SUFFIX,criteo.com
   - DOMAIN-SUFFIX,taboola.com
   - DOMAIN-SUFFIX,outbrain.com
+  - DOMAIN,securepubads.g.doubleclick.net
 
   # ===== 常见追踪/埋点平台（克制版）=====
   - DOMAIN-SUFFIX,adjust.com
