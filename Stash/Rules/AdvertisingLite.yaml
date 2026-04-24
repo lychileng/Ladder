@@ -6,10 +6,10 @@ payload:
   - DOMAIN-KEYWORD,adclick
   - DOMAIN-KEYWORD,statistic
   - DOMAIN-KEYWORD,tracker
-  # - DOMAIN-KEYWORD,tracking
-  # - DOMAIN-KEYWORD,analytics
-  # - DOMAIN-KEYWORD,telemetry
-  # - DOMAIN-KEYWORD,metrics
+  - DOMAIN-KEYWORD,tracking
+  - DOMAIN-KEYWORD,analytics
+  - DOMAIN-KEYWORD,telemetry
+  - DOMAIN-KEYWORD,metrics
 
   # ===== 通用广告后缀（高命中，低误伤）=====
   - DOMAIN-SUFFIX,doubleclick.net
