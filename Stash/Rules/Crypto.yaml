@@ -3,7 +3,7 @@ payload:
   # Binance, Fiat24, SafePal, Ready, PokePay, Kraken, Backpack, MetaMask, Bitget, Kiln
 
   # Binance
-  - DOMAIN-SUFFIX,bnbstatic.com
+  # - DOMAIN-SUFFIX,bnbstatic.com
   # - DOMAIN-SUFFIX,binance.com
   # - DOMAIN-SUFFIX,binance.org
   # - DOMAIN-KEYWORD,binance
