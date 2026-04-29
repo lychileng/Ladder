@@ -49,3 +49,10 @@ payload:
   - DOMAIN-SUFFIX,coinmarketcap.com
   - DOMAIN-SUFFIX,coingecko.com
   - DOMAIN-SUFFIX,dappradar.com
+
+  # Stock
+  - DOMAIN-SUFFIX,yahoo.com
+  - DOMAIN-SUFFIX,yimg.com
+  - DOMAIN-SUFFIX,finance.yahoo.com
+  - DOMAIN-SUFFIX,query1.finance.yahoo.com
+  - DOMAIN-SUFFIX,query2.finance.yahoo.com
