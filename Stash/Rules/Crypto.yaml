@@ -51,8 +51,8 @@ payload:
   - DOMAIN-SUFFIX,dappradar.com
 
   # Stock
-  - DOMAIN-SUFFIX,yahoo.com
+  - DOMAIN,finance.yahoo.com
+  - DOMAIN,query1.finance.yahoo.com
+  - DOMAIN,query2.finance.yahoo.com
   - DOMAIN-SUFFIX,yimg.com
-  - DOMAIN-SUFFIX,finance.yahoo.com
-  - DOMAIN-SUFFIX,query1.finance.yahoo.com
-  - DOMAIN-SUFFIX,query2.finance.yahoo.com
+  - DOMAIN,api.twelvedata.com
