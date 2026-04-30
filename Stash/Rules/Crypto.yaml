@@ -28,7 +28,8 @@ payload:
 
   # Kraken
   - DOMAIN-SUFFIX,kraken.com
-  - DOMAIN-KEYWORD,kraken
+  - DOMAIN-SUFFIX,kraken.net
+  - DOMAIN,api.kraken.com
 
   # Backpack
   - DOMAIN-SUFFIX,backpack.exchange
