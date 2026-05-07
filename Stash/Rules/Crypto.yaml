@@ -18,9 +18,8 @@ payload:
   - DOMAIN-SUFFIX,safepalwallet.com
 
   # Ready
-  - DOMAIN-SUFFIX,ready.co
-  - DOMAIN-SUFFIX,card.ready.co
-  - DOMAIN-KEYWORD,ready.co
+  # - DOMAIN-SUFFIX,ready.co
+  # - DOMAIN,card.ready.co
 
   # PokePay
   - DOMAIN-SUFFIX,pokepay.cc
