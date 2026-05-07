@@ -6,11 +6,9 @@ payload:
   # - DOMAIN-SUFFIX,bnbstatic.com
   # - DOMAIN-SUFFIX,binance.com
   # - DOMAIN-SUFFIX,binance.org
-  # - DOMAIN-KEYWORD,binance
   
   # Fiat24
   # - DOMAIN-SUFFIX,fiat24.com
-  # - DOMAIN-KEYWORD,fiat24
 
   # SafePal
   - DOMAIN-SUFFIX,safepal.com
@@ -18,8 +16,8 @@ payload:
   - DOMAIN-SUFFIX,safepalwallet.com
 
   # Ready
-  # - DOMAIN-SUFFIX,ready.co
-  # - DOMAIN,card.ready.co
+  - DOMAIN-SUFFIX,ready.co
+  - DOMAIN,card.ready.co
 
   # PokePay
   - DOMAIN-SUFFIX,pokepay.cc
