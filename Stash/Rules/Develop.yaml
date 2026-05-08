@@ -11,8 +11,6 @@ payload:
   - DOMAIN-SUFFIX,objects.githubusercontent.com
   - DOMAIN-SUFFIX,avatars.githubusercontent.com
   - DOMAIN-SUFFIX,api.github.com
-
-  # GitHub Copilot / Codespaces
   - DOMAIN-SUFFIX,githubcopilot.com
   - DOMAIN-SUFFIX,copilot-proxy.githubusercontent.com
   - DOMAIN-SUFFIX,github.dev
