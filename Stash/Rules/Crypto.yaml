@@ -29,6 +29,9 @@ payload:
   - DOMAIN-SUFFIX,krakenassets.com
   - DOMAIN-SUFFIX,kraken.zendesk.com
   - DOMAIN,api.kraken.com
+  - DOMAIN,ws.kraken.com
+  - DOMAIN,auth.kraken.com
+  - DOMAIN,static.kraken.com
   - DOMAIN-KEYWORD,kraken
 
   # Backpack
