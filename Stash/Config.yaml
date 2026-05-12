@@ -1,28 +1,24 @@
-# Optimized Stash Config
+# ---
+# Basic Configuration
+# ---
 mixed-port: 7890
 redir-port: 7892
 allow-lan: false
-ipv6: true
+ipv6: false
 mode: Rule
-log-level: warning
-
-# Listen on localhost only, avoid REST API exposure to LAN/WAN
-external-controller: 127.0.0.1:9090
-secret: "hello,world"
-
+log-level: info
+external-controller: "127.0.0.1:9090"
+secret: ""
 profile:
   store-selected: true
-  store-fake-ip: true
+  store-fake-ip: false
 
 sniffer:
   enable: true
   override-destination: true
-  # For stability, disable pure IP reverse lookup, keep regular TLS/HTTP/QUIC sniffing
   parse-pure-ip: false
-  force-dns-mapping: true
+  force-dns-mapping: false
   sniff:
-    QUIC:
-      ports: [443]
     TLS:
       ports: [443, 8443]
     HTTP:
@@ -31,59 +27,48 @@ sniffer:
   force-domain:
     - "+.netflix.com"
     - "+.nflxvideo.net"
+    - "+.amazonaws.com"
     - "+.media.dssott.com"
   skip-domain:
     - "+.apple.com"
     - "+.push.apple.com"
-    - Mijia Cloud
-    - dlg.io.mi.com
+    - "+.icloud.com"
+    - "+.icloud-content.com"
+    - "+.mzstatic.com"
+    - "+.itunes.apple.com"
+    - "+.todesk.com"
     - "+.oray.com"
-    - "+.sunlogin.net"
 
 tun:
   enable: true
-  stack: system
-  dns-hijack:
-    - "0.0.0.0:53"
-  auto-detect-interface: true
+  dns-hijack: [0.0.0.0:53]
+  auto-detect-interface: true 
   auto-route: true
   auto-redirect: true
-  # Keep "false" for compatibility, switch to "true" for testing if encounter issues with certain services
   strict-route: false
   endpoint-independent-nat: true
-  # Exclude common private network ranges to prevent potential routing issues
-  exclude-cidr:
-    - 192.168.0.0/16
-    - 10.0.0.0/8
-    - 172.16.0.0/12
 
 dns:
   enable: true
-  ipv6: true
+  ipv6: false
   use-system-hosts: false
   listen: 0.0.0.0:53
   enhanced-mode: fake-ip
   fake-ip-range: 198.18.0.1/16
-
-  # Only keep domains that truly require bypassing fake-ip
   fake-ip-filter:
     - "*.lan"
-    - "*.local"
-    - "*.localhost"
     - "localhost"
+    - "*.local"
+    - "stun.*.*.*"
+    - "stun.*.*"
     - "time.windows.com"
     - "time.nist.gov"
     - "time.apple.com"
     - "time.asia.apple.com"
-    - "time1.apple.com"
-    - "time2.apple.com"
-    - "time3.apple.com"
-    - "time4.apple.com"
-    - "time5.apple.com"
-    - "time6.apple.com"
-    - "time7.apple.com"
     - "*.ntp.org.cn"
     - "*.openwrt.pool.ntp.org"
+    - "time1.cloud.tencent.com"
+    - "time.ustc.edu.cn"
     - "pool.ntp.org"
     - "ntp.ubuntu.com"
     - "ntp.aliyun.com"
@@ -94,22 +79,25 @@ dns:
     - "ntp5.aliyun.com"
     - "ntp6.aliyun.com"
     - "ntp7.aliyun.com"
-    - "time1.cloud.tencent.com"
-    - "time.ustc.edu.cn"
+    - "time1.aliyun.com"
+    - "time2.aliyun.com"
+    - "time3.aliyun.com"
+    - "time4.aliyun.com"
+    - "time5.aliyun.com"
+    - "time6.aliyun.com"
+    - "time7.aliyun.com"
+    - "*.time.edu.cn"
+    - "time1.apple.com"
+    - "time2.apple.com"
+    - "time3.apple.com"
+    - "time4.apple.com"
+    - "time5.apple.com"
+    - "time6.apple.com"
+    - "time7.apple.com"
     - "time1.google.com"
     - "time2.google.com"
     - "time3.google.com"
     - "time4.google.com"
-    - "stun.*.*.*"
-    - "stun.*.*"
-    - "*.*.stun.playstation.net"
-    - "*.*.*.srv.nintendo.net"
-    - "xbox.*.*.microsoft.com"
-    - "*.ipv6.microsoft.com"
-    - "*.*.xboxlive.com"
-    - "*.msftconnecttest.com"
-    - "*.msftncsi.com"
-    - "localhost.ptlogin2.qq.com"
     - "music.163.com"
     - "*.music.163.com"
     - "*.126.net"
@@ -129,213 +117,194 @@ dns:
     - "dl.stream.qqmusic.qq.com"
     - "aqqmusic.tc.qq.com"
     - "amobile.music.tc.qq.com"
+    - "*.xiami.com"
     - "*.music.migu.cn"
     - "music.migu.cn"
-
-  # Use pure IP DNS during startup phase to avoid bootstrap dead loop
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - "localhost.ptlogin2.qq.com"
+    - "*.*.*.srv.nintendo.net"
+    - "*.*.stun.playstation.net"
+    - "xbox.*.*.microsoft.com"
+    - "*.ipv6.microsoft.com"
+    - "*.*.xboxlive.com"
+    - "speedtest.cros.wr.pvp.net"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
-    - 1.1.1.1
-    - 8.8.8.8
-    - 2400:3200::1
-    - 2606:4700:4700::1111
-
-  # Use DoH for both domestic and international domains, balancing speed for domestic and reliability
   nameserver:
     - https://dns.alidns.com/dns-query
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
-
-  # For resolving proxy node domains, prioritize stable direct DNS to avoid potential DoH issues
+    - https://doh.pub/dns-query
   proxy-server-nameserver:
     - 223.5.5.5
     - 119.29.29.29
-    - https://dns.alidns.com/dns-query
-    # - https://doh.pub/dns-query
-    # - https://cloudflare-dns.com/dns-query
-
-  fallback:
-    - https://cloudflare-dns.com/dns-query
-    - https://dns.google/dns-query
-
-  fallback-filter:
-    geoip: true
-    geoip-code: CN
-    ipcidr:
-      - 240.0.0.0/4
-      - 0.0.0.0/32
-      - 127.0.0.1/32
-    domain:
-      - "+.google.com"
-      - "+.facebook.com"
-      - "+.twitter.com"
-      - "+.youtube.com"
-      - "+.xn--ngstr-lra8j.com"
-      - "+.google.cn"
-      - "+.googleapis.cn"
-      - "+.googleapis.com"
-      - "+.gvt1.com"
+  skip-cert-verify: false
+  follow-rule: false
 
 proxy-providers:
   Tag:
     type: http
-    url: <replace_with_actual_subscription_URL>
-    path: ./proxy_provider/tag.yaml # Optional, for local caching
+    url: <subscription_url>
+    path: ./proxy_provider/tag.yaml
     interval: 3600
     health-check:
       enable: true
-      url: https://www.gstatic.com/generate_204
+      url: http://www.apple.com/library/test/success.html
       interval: 600
+    benchmark-url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
 
 proxy-groups:
-  - name: Rules 🎯 AI
+  - name: 🎯 AI
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/openai.png
     proxies:
-      - Nodes 🇪🇺 AI
-      - Nodes 🇼🇸 TW
-      - Nodes 🇸🇬 SG
-      - Nodes 🇯🇵 JP
-
-  - name: Rules 🎯 Social
+      - 🛰️ Taiwan
+      - 🛰️ Singapore
+      - 🛰️ Japan
+      - 🛰️ AI Prime
+  - name: 🎯 Social
     type: select
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/telegram.png
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/x.png
     proxies:
-      - Nodes 🇭🇰 HK
-      - Nodes 🇼🇸 TW
-      - Nodes 🇸🇬 SG
-      - Nodes 🇯🇵 JP
-      - Nodes 🇰🇷 KR
-      - Nodes 🇺🇸 US
-      - Nodes 🇺🇳 WW
-
-  - name: Rules 🎯 Stream
+      - 🛰️ Taiwan
+      - 🛰️ Hong Kong
+      - 🛰️ Singapore
+      - 🛰️ Japan
+      - 🛰️ South Korea
+      - 🛰️ United States
+      - 🛰️ Worldwide
+  - name: 🎯 Stream
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/youtube.png
     proxies:
-      - Nodes 🇭🇰 HK
-      - Nodes 🇼🇸 TW
-      - Nodes 🇸🇬 SG
-      - Nodes 🇯🇵 JP
-      - Nodes 🇰🇷 KR
-      - Nodes 🇺🇸 US
-      - Nodes 🇺🇳 WW
-
-  - name: Rules 🎯 Crypto
+      - 🛰️ Taiwan
+      - 🛰️ Hong Kong
+      - 🛰️ Singapore
+      - 🛰️ Japan
+      - 🛰️ South Korea
+      - 🛰️ United States
+      - 🛰️ Worldwide
+  - name: 🎯 Crypto
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/bitcoin.png
     proxies:
-      - Nodes 🇭🇰 HK
-      - Nodes 🇼🇸 TW
-      - Nodes 🇸🇬 SG
+      - 🛰️ Singapore
+      - 🛰️ Hong Kong
+      - 🛰️ Taiwan
+      - 🛰️ Japan
       - DIRECT
-
-  - name: Rules 🎯 Offshore
+  - name: 🎯 Offshore
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/hsbc.png
     proxies:
-      - Nodes 🇭🇰 HK
-      - Nodes 🇼🇸 TW
-      - Nodes 🇸🇬 SG
       - DIRECT
-
-  - name: Rules 🎯 Apple
+      - 🛰️ Taiwan
+      - 🛰️ Hong Kong
+      - 🛰️ Singapore
+  - name: 🎯 Apple
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/apple.png
     proxies:
-      - Nodes 🇭🇰 HK
-      - Nodes 🇼🇸 TW
-      - Nodes 🇸🇬 SG
-      - Nodes 🇯🇵 JP
-      - Nodes 🇰🇷 KR
-      - Nodes 🇺🇸 US
       - DIRECT
-
-  - name: Rules 🎯 Final
+      - 🛰️ Taiwan
+      - 🛰️ Hong Kong
+      - 🛰️ Singapore
+      - 🛰️ Japan
+      - 🛰️ South Korea
+      - 🛰️ United States
+  - name: 🎯 Final
     type: select
     icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Service/global.png
     proxies:
-      - Nodes 🇭🇰 HK
-      - Nodes 🇼🇸 TW
-      - Nodes 🇸🇬 SG
-      - Nodes 🇯🇵 JP
-      - Nodes 🇰🇷 KR
-      - Nodes 🇺🇸 US
-      - Nodes 🇺🇳 WW
+      - 🛰️ Taiwan
+      - 🛰️ Hong Kong
+      - 🛰️ Singapore
+      - 🛰️ Japan
+      - 🛰️ South Korea
+      - 🛰️ United States
+      - 🛰️ Worldwide
       - DIRECT
-
-  - name: Nodes 🇪🇺 AI
+  - name: 🛰️ Taiwan
     type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/EU.png
-    include-all: true
-    filter: ".*AI.*"
-    interval: 300
-    lazy: true
-    tolerance: 50
-
-  - name: Nodes 🇭🇰 HK
-    type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/HK.png
-    include-all: true
-    filter: "港|🇭🇰|HK|(?i)Hong"
-    interval: 300
-    lazy: true
-    tolerance: 50
-
-  - name: Nodes 🇼🇸 TW
-    type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/TW.png
     include-all: true
     filter: "台|🇼🇸|🇹🇼|TW|(?i)Taiwan"
-    interval: 300
-    lazy: true
-    tolerance: 50
-
-  - name: Nodes 🇸🇬 SG
+    interval: 600
+    lazy: false
+    tolerance: 80
+    url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/TW.png
+  - name: 🛰️ Hong Kong
     type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/SG.png
+    include-all: true
+    filter: "港|🇭🇰|HK|(?i)Hong"
+    interval: 600
+    lazy: false
+    tolerance: 80
+    url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/HK.png
+  - name: 🛰️ Singapore
+    type: url-test
     include-all: true
     filter: "新加坡|坡|🇸🇬|SG|(?i)Singapore"
-    interval: 300
-    lazy: true
-    tolerance: 50
-
-  - name: Nodes 🇯🇵 JP
+    interval: 600
+    lazy: false
+    tolerance: 80
+    url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/SG.png
+  - name: 🛰️ Japan
     type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/JP.png
     include-all: true
     filter: "日|🇯🇵|JP|(?i)Japan"
-    interval: 300
-    lazy: true
-    tolerance: 50
-
-  - name: Nodes 🇰🇷 KR
+    interval: 600
+    lazy: false
+    tolerance: 80
+    url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/JP.png
+  - name: 🛰️ South Korea
     type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/KR.png
     include-all: true
     filter: "韩|🇰🇷|KR|(?i)Korea"
-    interval: 300
+    interval: 1800
     lazy: true
-    tolerance: 50
-
-  - name: Nodes 🇺🇸 US
+    tolerance: 100
+    url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/KR.png
+  - name: 🛰️ United States
     type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/US.png
     include-all: true
-    filter: "美|🇺🇸|US|(?i)States|America|United States"
-    interval: 300
+    filter: "美|🇺🇸|US|(?i)States|America"
+    interval: 1800
     lazy: true
-    tolerance: 50
-
-  - name: Nodes 🇺🇳 WW
+    tolerance: 100
+    url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/US.png
+  - name: 🛰️ Worldwide
     type: url-test
-    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/WW.png
     include-all: true
     filter: "^(?!.*(AI-Prime|美|US|USA|Japan|日|JP|Taiwan|台|TW|Singapore|新|SG|Korea|韩|韓|KR|(?i)Hong|港|HK)).*"
-    interval: 300
+    interval: 1800
     lazy: true
-    tolerance: 50
+    tolerance: 100
+    url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/WW.png
+  - name: 🛰️ AI Prime
+    type: url-test
+    include-all: true
+    filter: ".*AI.*"
+    interval: 1800
+    lazy: true
+    tolerance: 100
+    url: http://www.apple.com/library/test/success.html
+    benchmark-timeout: 3
+    icon: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/ICON/Flag/AI.png
 
 rule-providers:
   Mainland:
@@ -344,113 +313,106 @@ rule-providers:
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Mainland.yaml
     path: ./rules/mainland.yaml
     interval: 86400
-
   AI:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/AI.yaml
     path: ./rules/ai.yaml
     interval: 86400
-
+  Develop:
+    type: http
+    behavior: domain
+    url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Develop.yaml
+    path: ./rules/develop.yaml
+    interval: 86400
   Offshore:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Offshore.yaml
     path: ./rules/offshore.yaml
     interval: 86400
-
   Crypto:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Crypto.yaml
     path: ./rules/crypto.yaml
     interval: 86400
-
   Apple:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Apple.yaml
     path: ./rules/apple.yaml
     interval: 86400
-
   Microsoft:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Microsoft.yaml
     path: ./rules/microsoft.yaml
     interval: 86400
-
   GlobalMedia:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/GlobalMedia.yaml
     path: ./rules/globalmedia.yaml
     interval: 86400
-
   SNS:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/SNS.yaml
     path: ./rules/sns.yaml
     interval: 86400
-
   Nike:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/Nike.yaml
     path: ./rules/nike.yaml
     interval: 86400
-
   Advertising:
     type: http
-    behavior: classical
+    behavior: domain
     url: https://raw.githubusercontent.com/lychileng/Ladder/refs/heads/main/Stash/Rules/AdvertisingLite.yaml
     path: ./rules/advertising.yaml
     interval: 86400
 
 rules:
-  # Local Rules
-  - DOMAIN-SUFFIX,cmynetwork.com,Rules 🎯 Final
-  - DOMAIN-SUFFIX,cmsub.com,Rules 🎯 Final
-  - DOMAIN-SUFFIX,ccsub.pz.pe,Rules 🎯 Final
-
+  # Remote
+  - RULE-SET,AI,🎯 AI
+  - RULE-SET,Offshore,🎯 Offshore
+  - RULE-SET,Crypto,🎯 Crypto
+  - RULE-SET,Apple,🎯 Apple
+  - RULE-SET,Microsoft,🎯 Apple
+  - RULE-SET,Develop,🎯 AI
+  - RULE-SET,SNS,🎯 Social
+  - RULE-SET,GlobalMedia,🎯 Stream
+  - RULE-SET,Nike,🛰️ Hong Kong
+  - RULE-SET,Advertising,REJECT
+  - RULE-SET,Mainland,DIRECT
+  # Local
+  - DOMAIN-SUFFIX,cmynetwork.com,🎯 Final
   - DOMAIN,api.binance.com,DIRECT
   - DOMAIN-SUFFIX,binance.com,DIRECT
   - DOMAIN-SUFFIX,binance.org,DIRECT
-
   - DOMAIN-SUFFIX,fiat24.com,DIRECT
-
-  - DOMAIN-SUFFIX,wiz.money,Rules 🎯 Crypto
-
-  - DOMAIN-SUFFIX,github.com,Rules 🎯 AI
-  - DOMAIN-SUFFIX,githubusercontent.com,Rules 🎯 AI
-  - DOMAIN-SUFFIX,githubassets.com,Rules 🎯 AI
-
+  - DOMAIN-SUFFIX,wiz.money,DIRECT
   - DOMAIN-SUFFIX,lichess.org,DIRECT
-
-  - DOMAIN-SUFFIX,fotmob.com,Rules 🎯 Stream
-  - DOMAIN-SUFFIX,ft.com,Rules 🎯 Stream
-  - DOMAIN-KEYWORD,ftchinese,Rules 🎯 Stream
-
+  - DOMAIN-SUFFIX,fotmob.com,🛰️ Hong Kong
+  - DOMAIN-SUFFIX,ftchinese.com,DIRECT
+  - DOMAIN-KEYWORD,adobe,REJECT
+  # CIDR
+  - IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+  - IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
   - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
   - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-
-  # Remote Rules
-  - RULE-SET,AI,Rules 🎯 AI
-  - RULE-SET,Offshore,Rules 🎯 Offshore
-  - RULE-SET,Crypto,Rules 🎯 Crypto
-  - RULE-SET,Apple,Rules 🎯 Apple
-  - RULE-SET,Microsoft,Rules 🎯 Apple
-  - RULE-SET,SNS,Rules 🎯 Social
-  - RULE-SET,Advertising,REJECT
-  - RULE-SET,GlobalMedia,Rules 🎯 Stream
-  - RULE-SET,Nike,Nodes 🇭🇰 HK
-  - RULE-SET,Mainland,DIRECT
-
+  - IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,255.255.255.255/32,DIRECT,no-resolve
+  - IP-CIDR,224.0.0.0/4,DIRECT,no-resolve
+  - IP-CIDR6,::1/128,DIRECT,no-resolve
+  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+  - IP-CIDR6,fe80::/10,DIRECT,no-resolve
+  - IP-CIDR6,ff00::/8,DIRECT,no-resolve
   # Geo
   - GEOIP,LAN,DIRECT,no-resolve
   - GEOIP,CN,DIRECT,no-resolve
-
   # Final
-  - MATCH,Rules 🎯 Final
+  - MATCH,🎯 Final
