@@ -1,42 +1,41 @@
 payload:
-  # X / Twitter
+  # API & Auth
   - DOMAIN-SUFFIX,x.com
-  - DOMAIN-SUFFIX,twimg.com
-  - DOMAIN-SUFFIX,t.co
-  - DOMAIN-SUFFIX,tweetdeck.com
   - DOMAIN-SUFFIX,twitter.com
   - DOMAIN-SUFFIX,twitter.jp
+  - DOMAIN-SUFFIX,twitter.biz
+  - DOMAIN-SUFFIX,twitterinc.com
+  - DOMAIN-SUFFIX,twitterstat.us
   - DOMAIN-SUFFIX,twittercommunity.com
   - DOMAIN-SUFFIX,twitteroauth.com
-  - DOMAIN-SUFFIX,twtrdns.net
-  - DOMAIN-SUFFIX,grok.com
-  - PROCESS-NAME,X
-  - PROCESS-NAME,Twitter
-  - PROCESS-NAME,com.atebits.Tweetie2
-  # Media / static / short links
+  # Short link
   - DOMAIN-SUFFIX,t.co
-  - DOMAIN-SUFFIX,pbs.twimg.com
-  - DOMAIN-SUFFIX,video.twimg.com
+  # Media / CDN
   - DOMAIN-SUFFIX,twimg.com
   - DOMAIN-SUFFIX,twimg.co
   - DOMAIN-SUFFIX,twimg.org
+  - DOMAIN-SUFFIX,twtrdns.net
   - DOMAIN-SUFFIX,twvid.com
+  # Fastly CDN
+  - DOMAIN-SUFFIX,twitter.map.fastly.net
   # Legacy / ecosystem
   - DOMAIN-SUFFIX,tweetdeck.com
   - DOMAIN-SUFFIX,twitpic.com
   - DOMAIN-SUFFIX,periscope.tv
   - DOMAIN-SUFFIX,pscp.tv
   - DOMAIN-SUFFIX,vine.co
+  # Grok
   - DOMAIN-SUFFIX,grok.com
-  # Corporate / community / auth
-  - DOMAIN-SUFFIX,twittercommunity.com
-  - DOMAIN-SUFFIX,twitteroauth.com
-  - DOMAIN-SUFFIX,twitterstat.us
-  - DOMAIN-SUFFIX,twitterinc.com
-  # Optional business / brand assets
+  - DOMAIN-SUFFIX,grok.x.ai
+  - DOMAIN-SUFFIX,x.ai
+  # Ads / Brand assets
   - DOMAIN-SUFFIX,ads-twitter.com
   - DOMAIN-SUFFIX,cms-twdigitalassets.com
-  - DOMAIN-SUFFIX,twitter.biz
+  # Process
+  - PROCESS-NAME,X
+  - PROCESS-NAME,Twitter
+  - PROCESS-NAME,com.atebits.Tweetie2
+  - PROCESS-NAME,com.twitter.android
   
   # Telegram
   - DOMAIN,api.imem.app
