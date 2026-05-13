@@ -1,0 +1,48 @@
+# Crypto domain rules for Stash
+# behavior: domain
+#
+# Conversion notes:
+# - DOMAIN is written as an exact domain, for example: example.com
+# - DOMAIN-SUFFIX is written as +.example.com
+# - DOMAIN-KEYWORD is kept as a bare keyword when present
+# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
+#   because this file is meant to be used only with behavior: domain.
+payload:
+  # Kraken
+  - '+.kraken.com'
+  - '+.krakenpro.com'
+  - '+.krakenassets.com'
+  - '+.kraken.zendesk.com'
+  - api.kraken.com
+  - ws.kraken.com
+  - auth.kraken.com
+  - static.kraken.com
+  - kraken
+  # DeFi
+  - '+.safepal.com'
+  - '+.safepal.io'
+  - '+.ready.co'
+  - card.ready.co
+  - '+.pokepay.cc'
+  - '+.pokepay.com'
+  - '+.kiln.fi'
+  # Wallets
+  - '+.safepalwallet.com'
+  - '+.metamask.io'
+  - metamask
+  # Market data
+  - '+.coinmarketcap.com'
+  - '+.coingecko.com'
+  - '+.syncbits.com'
+  - '+.dappradar.com'
+  - finance.yahoo.com
+  - query1.finance.yahoo.com
+  - query2.finance.yahoo.com
+  - '+.yimg.com'
+  - api.twelvedata.com
+  # Other related domains
+  - '+.bitget.com'
+  - '+.backpack.exchange'
+  - '+.backpack.app'
+  

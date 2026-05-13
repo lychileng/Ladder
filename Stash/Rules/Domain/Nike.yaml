@@ -1,0 +1,22 @@
+# Nike domain rules for Stash
+# behavior: domain
+#
+# Conversion notes:
+# - DOMAIN is written as an exact domain, for example: example.com
+# - DOMAIN-SUFFIX is written as +.example.com
+# - DOMAIN-KEYWORD is kept as a bare keyword when present
+# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
+#   because this file is meant to be used only with behavior: domain.
+payload:
+  # Nike official services
+  - '+.nike.com'
+  - '+.nikecdn.com'
+  - '+.nikecloud.com'
+  - '+.nikeinc.com.cn'
+  - '+.nikestore.com.au'
+  - '+.niketracking.com'
+  - '+.static-nike.com'
+  - '+.swoosh.com'
+  # Other Nike-related domains
+  - '+.swoo.sh'

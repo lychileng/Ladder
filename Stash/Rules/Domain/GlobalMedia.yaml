@@ -1,0 +1,66 @@
+# GlobalMedia domain rules for Stash
+# behavior: domain
+#
+# Conversion notes:
+# - DOMAIN is written as an exact domain, for example: example.com
+# - DOMAIN-SUFFIX is written as +.example.com
+# - DOMAIN-KEYWORD is kept as a bare keyword when present
+# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
+#   because this file is meant to be used only with behavior: domain.
+# - Section comments are grouped by service category for easier maintenance.
+payload:
+  # Video streaming
+  - '+.netflix.com'
+  - '+.nflxvideo.net'
+  - '+.nflximg.net'
+  - '+.nflxso.net'
+  - '+.youtube.com'
+  - '+.disneyplus.com'
+  - '+.disney-plus.net'
+  - '+.hbo.com'
+  - '+.hbomax.com'
+  - '+.primevideo.com'
+  # Music / audio streaming
+  - '+.spotify.com'
+  # News / publishing / sports media
+  - '+.bbc.com'
+  - '+.bbc.co.uk'
+  - '+.cnn.com'
+  - '+.nytimes.com'
+  - '+.wsj.com'
+  - '+.ft.com'
+  - '+.bloomberg.com'
+  - '+.reuters.com'
+  - '+.medium.com'
+  # Media CDN / supporting services
+  - '+.googlevideo.com'
+  - '+.aiv-cdn.net'
+  - '+.applevideo.net'
+  - '+.scdn.co'
+  - '+.phncdn.com'
+  - '+.phprcdn.com'
+  - '+.ofcdn.co'
+  # Other GlobalMedia domains
+  - '+.ytimg.com'
+  - '+.bamgrid.com'
+  - '+.tv.apple.com'
+  - '+.pornhub.com'
+  - '+.onlyfans.com'
+  - '+.onlyfansfans.com'
+  - pornhub
+  - onlyfans
+  - '+.apnews.com'
+  - '+.theverge.com'
+  - '+.techcrunch.com'
+  - '+.wired.com'
+  - '+.economist.com'
+  - '+.foreignaffairs.com'
+  - '+.rthk.hk'
+  - '+.hk01.com'
+  - '+.setn.com'
+  - '+.ettoday.net'
+  - '+.substack.com'
+  - '+.wordpress.com'
+  - '+.blogspot.com'
+  - '+.livejournal.com'

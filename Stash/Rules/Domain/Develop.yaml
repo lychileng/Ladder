@@ -1,0 +1,82 @@
+# Develop domain rules for Stash
+# behavior: domain
+#
+# Conversion notes:
+# - DOMAIN is written as an exact domain, for example: example.com
+# - DOMAIN-SUFFIX is written as +.example.com
+# - DOMAIN-KEYWORD is kept as a bare keyword when present
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME rules are intentionally discarded
+#   because this file is meant to be used only with behavior: domain.
+payload:
+  # Code hosting / repositories
+  - '+.github.com'
+  - '+.githubusercontent.com'
+  - '+.githubassets.com'
+  - '+.github.io'
+  - '+.githubstatus.com'
+  - '+.raw.githubusercontent.com'
+  - '+.gist.github.com'
+  - '+.codeload.github.com'
+  - '+.objects.githubusercontent.com'
+  - '+.avatars.githubusercontent.com'
+  - '+.api.github.com'
+  - '+.githubcopilot.com'
+  - '+.copilot-proxy.githubusercontent.com'
+  - '+.github.dev'
+  - '+.githubpreview.dev'
+  - '+.npmjs.com'
+  - '+.registry.npmjs.org'
+  - '+.mvnrepository.com'
+  - '+.jsdelivr.net'
+  - '+.unpkg.com'
+  # Package managers / dependency registries
+  - '+.pypi.org'
+  - '+.pythonhosted.org'
+  - '+.files.pythonhosted.org'
+  - '+.rubygems.org'
+  - '+.maven.org'
+  - '+.gradle.org'
+  - '+.nuget.org'
+  - '+.brew.sh'
+  - '+.docker.com'
+  - '+.docker.io'
+  - '+.dockerusercontent.com'
+  - '+.hub.docker.com'
+  - '+.quay.io'
+  # Developer documentation / platforms
+  - '+.developer.chrome.com'
+  - '+.developers.google.com'
+  - '+.stackoverflow.com'
+  - '+.stackexchange.com'
+  - '+.mdn.mozilla.org'
+  - '+.readthedocs.io'
+  # Cloud / DevOps / CI
+  - '+.firebase.google.com'
+  - '+.azure.com'
+  - '+.azureedge.net'
+  - '+.cloudflare.com'
+  - '+.vercel.com'
+  - '+.vercel.app'
+  - '+.netlify.com'
+  - '+.netlify.app'
+  - '+.heroku.com'
+  - '+.digitalocean.com'
+  # Other developer-related domains
+  - '+.gstatic.com'
+  - '+.microsoft.com'
+  - '+.visualstudio.com'
+  - '+.visualstudio.microsoft.com'
+  - '+.vscode.dev'
+  - '+.code.visualstudio.com'
+  - '+.nodejs.org'
+  - '+.anaconda.com'
+  - '+.conda.io'
+  - '+.packagist.org'
+  - '+.cocoapods.org'
+  - '+.ghcr.io'
+  - '+.workers.dev'
+  - '+.render.com'
+  - '+.medium.com'
+  - '+.dev.to'
+  - '+.figma.com'
+  - '+.cdnjs.com'

@@ -1,0 +1,57 @@
+# AdvertisingLite domain rules for Stash
+# behavior: domain
+#
+# Conversion notes:
+# - DOMAIN is written as an exact domain, for example: example.com
+# - DOMAIN-SUFFIX is written as +.example.com
+# - DOMAIN-KEYWORD is kept as a bare keyword when present
+# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
+#   because this file is meant to be used only with behavior: domain.
+# - Section comments are grouped by service category for easier maintenance.
+payload:
+  # Ad networks / ad serving
+  - adservice
+  - doubleclick
+  - '+.doubleclick.net'
+  - '+.pagead2.googlesyndication.com'
+  - '+.googlesyndication.com'
+  - '+.googleadservices.com'
+  - '+.adnxs.com'
+  - '+.criteo.com'
+  - '+.taboola.com'
+  - '+.outbrain.com'
+  - '+.adjust.com'
+  - '+.ads.linkedin.com'
+  - '+.unityads.unity3d.com'
+  - '+.applovin.com'
+  - '+.admob.com'
+  - '+.baiduad.com'
+  # Analytics / tracking / attribution
+  - statistic
+  - tracker
+  - tracking
+  - analytics
+  - metrics
+  - '+.umeng.com'
+  - '+.baidustatic.com'
+  # App / mobile ad SDK endpoints
+  - '+.appsflyer.com'
+  - '+.branch.io'
+  - '+.kochava.com'
+  - '+.vungle.com'
+  # Chinese ad / tracking services
+  - '+.baidubce.com'
+  # Other AdvertisingLite domains
+  - adserver
+  - adtrack
+  - adclick
+  - telemetry
+  - '+.adtrafficquality.google'
+  - '+.ads-twitter.com'
+  - '+.chartboost.com'
+  - '+.umtrack.com'
+  - '+.click'
+  - '+.top'
+  - '+.xyz'
+  - '+.icu'

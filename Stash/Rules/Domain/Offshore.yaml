@@ -1,0 +1,26 @@
+# Offshore domain rules for Stash
+# behavior: domain
+#
+# Conversion notes:
+# - DOMAIN is written as an exact domain, for example: example.com
+# - DOMAIN-SUFFIX is written as +.example.com
+# - DOMAIN-KEYWORD is kept as a bare keyword when present
+# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
+#   because this file is meant to be used only with behavior: domain.
+payload:
+  # HSBC
+  - '+.hsbc.com.hk'
+  - '+.hsbcprivatebank.com.hk'
+  - '+.hsbcassetmanagement.com.hk'
+  # BOCHK
+  - '+.bochk.com'
+  - '+.ebanking.bochk.com'
+  # ZA Bank
+  - '+.zabank.com'
+  - '+.za.group'
+  # Airstar Bank
+  - '+.airstarbank.com'
+  # Wise
+  - '+.wise.com'
+  - '+.transferwise.com'
