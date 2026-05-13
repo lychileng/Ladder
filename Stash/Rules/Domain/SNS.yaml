@@ -1,15 +1,4 @@
-# SNS domain rules for Stash / Clash Premium
-# behavior: domain
-#
-# Conversion notes:
-# - DOMAIN is kept as exact domain: example.com
-# - DOMAIN-SUFFIX is converted to Clash Premium suffix form: .example.com
-# - DOMAIN-WILDCARD is kept only when it is an actual wildcard domain.
-# - DOMAIN-KEYWORD is discarded; it has no lossless equivalent in behavior: domain.
-# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT are discarded.
-# - Section comments are grouped by service category for maintenance only.
 payload:
-  # X / Twitter
   - '.x.com'
   - '.twitter.com'
   - '.twitter.jp'
@@ -29,7 +18,6 @@ payload:
   - '.accountkit.com'
   - '.reddit.com'
   - '.snapchat.com'
-  # Other social services
   - '.twtrdns.net'
   - '.twvid.com'
   - '.tweetdeck.com'
@@ -74,7 +62,6 @@ payload:
   - '.feelinsonice.com'
   - '.ibytedtos.com'
   - '.ibyteimg.com'
-  # Telegram
   - '.cdn-telegram.org'
   - '.t.me'
   - '.tdesktop.com'
@@ -84,14 +71,12 @@ payload:
   - '.telegram.org'
   - '.telegram.space'
   - '.telegramdownload.com'
-  # Meta / Facebook / Instagram / Threads
   - '.fbcdn.net'
   - '.facebook.com'
   - '.facebook.net'
   - '.instagram.com'
   - '.cdninstagram.com'
   - '.threads.net'
-  # Discord / Reddit
   - '.discord.com'
   - '.discord.gg'
   - '.discord.gift'
@@ -103,7 +88,6 @@ payload:
   - '.redditmedia.com'
   - '.redditstatic.com'
   - '.reddituploads.com'
-  # LinkedIn / Pinterest / Snapchat / TikTok
   - '.tiktok.com'
   - '.tiktokv.com'
   - '.tiktokcdn.com'
