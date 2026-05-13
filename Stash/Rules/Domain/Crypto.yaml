@@ -1,44 +1,44 @@
-# Crypto safe domain rules for Stash
+# Crypto domain rules for Stash / Clash Premium
 # behavior: domain
 #
-# Safe conversion notes:
-# - DOMAIN is kept as exact domain.
-# - DOMAIN-SUFFIX is converted to +.example.com.
-# - DOMAIN-KEYWORD is discarded. There is no lossless domain-provider equivalent.
-# - Single-label / TLD-wide suffixes such as top, xyz, icu, click are discarded to avoid overbroad matches.
+# Conversion notes:
+# - DOMAIN is kept as exact domain: example.com
+# - DOMAIN-SUFFIX is converted to Clash Premium suffix form: .example.com
+# - DOMAIN-WILDCARD is kept only when it is an actual wildcard domain.
+# - DOMAIN-KEYWORD is discarded; it has no lossless equivalent in behavior: domain.
 # - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT are discarded.
 # - Section comments are grouped by service category for maintenance only.
 payload:
   # Other crypto services
-  - '+.safepal.com'
-  - '+.safepal.io'
-  - '+.ready.co'
-  - card.ready.co
-  - '+.pokepay.cc'
-  - '+.pokepay.com'
-  - '+.backpack.exchange'
-  - '+.backpack.app'
-  - '+.kiln.fi'
-  - '+.syncbits.com'
-  - '+.dappradar.com'
-  - finance.yahoo.com
-  - query1.finance.yahoo.com
-  - query2.finance.yahoo.com
-  - '+.yimg.com'
-  - api.twelvedata.com
+  - '.safepal.com'
+  - '.safepal.io'
+  - '.ready.co'
+  - 'card.ready.co'
+  - '.pokepay.cc'
+  - '.pokepay.com'
+  - '.backpack.exchange'
+  - '.backpack.app'
+  - '.kiln.fi'
+  - '.syncbits.com'
+  - '.dappradar.com'
+  - 'finance.yahoo.com'
+  - 'query1.finance.yahoo.com'
+  - 'query2.finance.yahoo.com'
+  - '.yimg.com'
+  - 'api.twelvedata.com'
   # Wallets / chains / explorers / DeFi
-  - '+.safepalwallet.com'
-  - '+.metamask.io'
+  - '.safepalwallet.com'
+  - '.metamask.io'
   # Exchanges / trading platforms
-  - '+.kraken.com'
-  - '+.krakenpro.com'
-  - '+.krakenassets.com'
-  - '+.kraken.zendesk.com'
-  - api.kraken.com
-  - ws.kraken.com
-  - auth.kraken.com
-  - static.kraken.com
-  - '+.bitget.com'
+  - '.kraken.com'
+  - '.krakenpro.com'
+  - '.krakenassets.com'
+  - '.kraken.zendesk.com'
+  - 'api.kraken.com'
+  - 'ws.kraken.com'
+  - 'auth.kraken.com'
+  - 'static.kraken.com'
+  - '.bitget.com'
   # Market data / crypto media
-  - '+.coinmarketcap.com'
-  - '+.coingecko.com'
+  - '.coinmarketcap.com'
+  - '.coingecko.com'
