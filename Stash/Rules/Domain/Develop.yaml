@@ -1,12 +1,13 @@
-# Develop domain rules for Stash
+# Develop safe domain rules for Stash
 # behavior: domain
 #
-# Conversion notes:
-# - DOMAIN is written as an exact domain, for example: example.com
-# - DOMAIN-SUFFIX is written as +.example.com
-# - DOMAIN-KEYWORD is kept as a bare keyword when present
-# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME rules are intentionally discarded
-#   because this file is meant to be used only with behavior: domain.
+# Safe conversion notes:
+# - DOMAIN is kept as exact domain.
+# - DOMAIN-SUFFIX is converted to +.example.com.
+# - DOMAIN-KEYWORD is discarded. There is no lossless domain-provider equivalent.
+# - Single-label / TLD-wide suffixes such as top, xyz, icu, click are discarded to avoid overbroad matches.
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT are discarded.
+# - Section comments are grouped by service category for maintenance only.
 payload:
   # Code hosting / repositories
   - '+.github.com'
@@ -24,26 +25,7 @@ payload:
   - '+.copilot-proxy.githubusercontent.com'
   - '+.github.dev'
   - '+.githubpreview.dev'
-  - '+.npmjs.com'
-  - '+.registry.npmjs.org'
-  - '+.mvnrepository.com'
-  - '+.jsdelivr.net'
-  - '+.unpkg.com'
-  # Package managers / dependency registries
-  - '+.pypi.org'
-  - '+.pythonhosted.org'
-  - '+.files.pythonhosted.org'
-  - '+.rubygems.org'
-  - '+.maven.org'
-  - '+.gradle.org'
-  - '+.nuget.org'
-  - '+.brew.sh'
-  - '+.docker.com'
-  - '+.docker.io'
-  - '+.dockerusercontent.com'
-  - '+.hub.docker.com'
-  - '+.quay.io'
-  # Developer documentation / platforms
+  # Developer docs / Q&A
   - '+.developer.chrome.com'
   - '+.developers.google.com'
   - '+.stackoverflow.com'
@@ -60,8 +42,7 @@ payload:
   - '+.netlify.com'
   - '+.netlify.app'
   - '+.heroku.com'
-  - '+.digitalocean.com'
-  # Other developer-related domains
+  # Other developer services
   - '+.gstatic.com'
   - '+.microsoft.com'
   - '+.visualstudio.com'
@@ -72,11 +53,31 @@ payload:
   - '+.anaconda.com'
   - '+.conda.io'
   - '+.packagist.org'
+  - '+.mvnrepository.com'
   - '+.cocoapods.org'
+  - '+.brew.sh'
   - '+.ghcr.io'
   - '+.workers.dev'
   - '+.render.com'
+  - '+.digitalocean.com'
   - '+.medium.com'
   - '+.dev.to'
   - '+.figma.com'
   - '+.cdnjs.com'
+  # Package managers / registries
+  - '+.npmjs.com'
+  - '+.registry.npmjs.org'
+  - '+.pypi.org'
+  - '+.pythonhosted.org'
+  - '+.files.pythonhosted.org'
+  - '+.rubygems.org'
+  - '+.maven.org'
+  - '+.gradle.org'
+  - '+.nuget.org'
+  - '+.docker.com'
+  - '+.docker.io'
+  - '+.dockerusercontent.com'
+  - '+.hub.docker.com'
+  - '+.quay.io'
+  - '+.jsdelivr.net'
+  - '+.unpkg.com'

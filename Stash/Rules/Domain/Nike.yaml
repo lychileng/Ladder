@@ -1,13 +1,13 @@
-# Nike domain rules for Stash
+# Nike safe domain rules for Stash
 # behavior: domain
 #
-# Conversion notes:
-# - DOMAIN is written as an exact domain, for example: example.com
-# - DOMAIN-SUFFIX is written as +.example.com
-# - DOMAIN-KEYWORD is kept as a bare keyword when present
-# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
-# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
-#   because this file is meant to be used only with behavior: domain.
+# Safe conversion notes:
+# - DOMAIN is kept as exact domain.
+# - DOMAIN-SUFFIX is converted to +.example.com.
+# - DOMAIN-KEYWORD is discarded. There is no lossless domain-provider equivalent.
+# - Single-label / TLD-wide suffixes such as top, xyz, icu, click are discarded to avoid overbroad matches.
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT are discarded.
+# - Section comments are grouped by service category for maintenance only.
 payload:
   # Nike official services
   - '+.nike.com'

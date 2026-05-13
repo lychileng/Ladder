@@ -1,59 +1,74 @@
+# AI safe domain rules for Stash
+# behavior: domain
+#
+# Safe conversion notes:
+# - DOMAIN is kept as exact domain.
+# - DOMAIN-SUFFIX is converted to +.example.com.
+# - DOMAIN-KEYWORD is discarded. There is no lossless domain-provider equivalent.
+# - Single-label / TLD-wide suffixes such as top, xyz, icu, click are discarded to avoid overbroad matches.
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT are discarded.
+# - Section comments are grouped by service category for maintenance only.
 payload:
-- +.openai.com
-- +.chatgpt.com
-- +.oaistatic.com
-- +.oaiusercontent.com
-- +.anthropic.com
-- +.claude.ai
-- api.anthropic.com
-- console.anthropic.com
-- code.claude.com
-- +.gemini.google.com
-- +.aistudio.google.com
-- +.notebooklm.google.com
-- generativelanguage.googleapis.com
-- +.aiplatform.googleapis.com
-- +.x.ai
-- +.grok.com
-- api.x.ai
-- accounts.x.ai
-- +.langchain.com
-- smith.langchain.com
-- api.smith.langchain.com
-- eu.api.smith.langchain.com
-- +.huggingface.co
-- +.hf.co
-- +.endpoints.huggingface.co
-- meta.ai
-- ai.meta.com
-- +.perplexity.ai
-- api.perplexity.ai
-- +.mistral.ai
-- api.mistral.ai
-- +.cohere.com
-- +.cohere.ai
-- +.together.ai
-- +.together.xyz
-- api.together.ai
-- api.together.xyz
-- +.groq.com
-- api.groq.com
-- console.groq.com
-- +.openrouter.ai
-- +.poe.com
-- +.character.ai
-- +.replicate.com
-- +.stability.ai
-- +.runwayml.com
-- +.suno.com
-- +.elevenlabs.io
-- +.auth0.com
-- +.stripe.com
-- +.sentry.io
-- +.segment.io
-- +.intercom.io
-- +.intercomcdn.com
-- +.launchdarkly.com
-- +.algolia.net
-- +.api.statsig.com
-- +.events.statsigapi.net
+  # OpenAI / ChatGPT
+  - '+.openai.com'
+  - '+.chatgpt.com'
+  - '+.oaistatic.com'
+  - '+.oaiusercontent.com'
+  # Anthropic / Claude
+  - '+.anthropic.com'
+  - '+.claude.ai'
+  - api.anthropic.com
+  - console.anthropic.com
+  - code.claude.com
+  # Google AI / Gemini
+  - '+.gemini.google.com'
+  - generativelanguage.googleapis.com
+  # Other AI services
+  - '+.aistudio.google.com'
+  - '+.notebooklm.google.com'
+  - '+.aiplatform.googleapis.com'
+  - '+.x.ai'
+  - '+.grok.com'
+  - api.x.ai
+  - accounts.x.ai
+  - '+.langchain.com'
+  - smith.langchain.com
+  - api.smith.langchain.com
+  - eu.api.smith.langchain.com
+  - '+.hf.co'
+  - meta.ai
+  - ai.meta.com
+  - '+.mistral.ai'
+  - api.mistral.ai
+  - '+.cohere.com'
+  - '+.cohere.ai'
+  - '+.together.ai'
+  - '+.together.xyz'
+  - api.together.ai
+  - api.together.xyz
+  - '+.groq.com'
+  - api.groq.com
+  - console.groq.com
+  - '+.openrouter.ai'
+  - '+.character.ai'
+  - '+.runwayml.com'
+  - '+.suno.com'
+  - '+.elevenlabs.io'
+  - '+.auth0.com'
+  - '+.stripe.com'
+  - '+.sentry.io'
+  - '+.segment.io'
+  - '+.intercom.io'
+  - '+.intercomcdn.com'
+  - '+.launchdarkly.com'
+  - '+.algolia.net'
+  - '+.api.statsig.com'
+  - '+.events.statsigapi.net'
+  # AI platforms / model APIs
+  - '+.huggingface.co'
+  - '+.endpoints.huggingface.co'
+  - '+.perplexity.ai'
+  - api.perplexity.ai
+  - '+.poe.com'
+  - '+.replicate.com'
+  - '+.stability.ai'

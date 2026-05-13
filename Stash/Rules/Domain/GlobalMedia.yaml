@@ -1,14 +1,13 @@
-# GlobalMedia domain rules for Stash
+# GlobalMedia safe domain rules for Stash
 # behavior: domain
 #
-# Conversion notes:
-# - DOMAIN is written as an exact domain, for example: example.com
-# - DOMAIN-SUFFIX is written as +.example.com
-# - DOMAIN-KEYWORD is kept as a bare keyword when present
-# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
-# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
-#   because this file is meant to be used only with behavior: domain.
-# - Section comments are grouped by service category for easier maintenance.
+# Safe conversion notes:
+# - DOMAIN is kept as exact domain.
+# - DOMAIN-SUFFIX is converted to +.example.com.
+# - DOMAIN-KEYWORD is discarded. There is no lossless domain-provider equivalent.
+# - Single-label / TLD-wide suffixes such as top, xyz, icu, click are discarded to avoid overbroad matches.
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT are discarded.
+# - Section comments are grouped by service category for maintenance only.
 payload:
   # Video streaming
   - '+.netflix.com'
@@ -21,18 +20,6 @@ payload:
   - '+.hbo.com'
   - '+.hbomax.com'
   - '+.primevideo.com'
-  # Music / audio streaming
-  - '+.spotify.com'
-  # News / publishing / sports media
-  - '+.bbc.com'
-  - '+.bbc.co.uk'
-  - '+.cnn.com'
-  - '+.nytimes.com'
-  - '+.wsj.com'
-  - '+.ft.com'
-  - '+.bloomberg.com'
-  - '+.reuters.com'
-  - '+.medium.com'
   # Media CDN / supporting services
   - '+.googlevideo.com'
   - '+.aiv-cdn.net'
@@ -41,15 +28,13 @@ payload:
   - '+.phncdn.com'
   - '+.phprcdn.com'
   - '+.ofcdn.co'
-  # Other GlobalMedia domains
+  # Other global media domains
   - '+.ytimg.com'
   - '+.bamgrid.com'
   - '+.tv.apple.com'
   - '+.pornhub.com'
   - '+.onlyfans.com'
   - '+.onlyfansfans.com'
-  - pornhub
-  - onlyfans
   - '+.apnews.com'
   - '+.theverge.com'
   - '+.techcrunch.com'
@@ -64,3 +49,15 @@ payload:
   - '+.wordpress.com'
   - '+.blogspot.com'
   - '+.livejournal.com'
+  # Music / audio streaming
+  - '+.spotify.com'
+  # News / publishing / sports media
+  - '+.bbc.com'
+  - '+.bbc.co.uk'
+  - '+.cnn.com'
+  - '+.nytimes.com'
+  - '+.wsj.com'
+  - '+.ft.com'
+  - '+.bloomberg.com'
+  - '+.reuters.com'
+  - '+.medium.com'

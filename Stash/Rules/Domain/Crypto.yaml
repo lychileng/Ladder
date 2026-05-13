@@ -1,15 +1,35 @@
-# Crypto domain rules for Stash
+# Crypto safe domain rules for Stash
 # behavior: domain
 #
-# Conversion notes:
-# - DOMAIN is written as an exact domain, for example: example.com
-# - DOMAIN-SUFFIX is written as +.example.com
-# - DOMAIN-KEYWORD is kept as a bare keyword when present
-# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
-# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
-#   because this file is meant to be used only with behavior: domain.
+# Safe conversion notes:
+# - DOMAIN is kept as exact domain.
+# - DOMAIN-SUFFIX is converted to +.example.com.
+# - DOMAIN-KEYWORD is discarded. There is no lossless domain-provider equivalent.
+# - Single-label / TLD-wide suffixes such as top, xyz, icu, click are discarded to avoid overbroad matches.
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT are discarded.
+# - Section comments are grouped by service category for maintenance only.
 payload:
-  # Kraken
+  # Other crypto services
+  - '+.safepal.com'
+  - '+.safepal.io'
+  - '+.ready.co'
+  - card.ready.co
+  - '+.pokepay.cc'
+  - '+.pokepay.com'
+  - '+.backpack.exchange'
+  - '+.backpack.app'
+  - '+.kiln.fi'
+  - '+.syncbits.com'
+  - '+.dappradar.com'
+  - finance.yahoo.com
+  - query1.finance.yahoo.com
+  - query2.finance.yahoo.com
+  - '+.yimg.com'
+  - api.twelvedata.com
+  # Wallets / chains / explorers / DeFi
+  - '+.safepalwallet.com'
+  - '+.metamask.io'
+  # Exchanges / trading platforms
   - '+.kraken.com'
   - '+.krakenpro.com'
   - '+.krakenassets.com'
@@ -18,31 +38,7 @@ payload:
   - ws.kraken.com
   - auth.kraken.com
   - static.kraken.com
-  - kraken
-  # DeFi
-  - '+.safepal.com'
-  - '+.safepal.io'
-  - '+.ready.co'
-  - card.ready.co
-  - '+.pokepay.cc'
-  - '+.pokepay.com'
-  - '+.kiln.fi'
-  # Wallets
-  - '+.safepalwallet.com'
-  - '+.metamask.io'
-  - metamask
-  # Market data
+  - '+.bitget.com'
+  # Market data / crypto media
   - '+.coinmarketcap.com'
   - '+.coingecko.com'
-  - '+.syncbits.com'
-  - '+.dappradar.com'
-  - finance.yahoo.com
-  - query1.finance.yahoo.com
-  - query2.finance.yahoo.com
-  - '+.yimg.com'
-  - api.twelvedata.com
-  # Other related domains
-  - '+.bitget.com'
-  - '+.backpack.exchange'
-  - '+.backpack.app'
-  

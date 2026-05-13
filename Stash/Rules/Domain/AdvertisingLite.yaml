@@ -1,18 +1,15 @@
-# AdvertisingLite domain rules for Stash
+# AdvertisingLite safe domain rules for Stash
 # behavior: domain
 #
-# Conversion notes:
-# - DOMAIN is written as an exact domain, for example: example.com
-# - DOMAIN-SUFFIX is written as +.example.com
-# - DOMAIN-KEYWORD is kept as a bare keyword when present
-# - DOMAIN-WILDCARD is converted to +.example.com when it is a simple *.example.com wildcard
-# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT rules are intentionally discarded
-#   because this file is meant to be used only with behavior: domain.
-# - Section comments are grouped by service category for easier maintenance.
+# Safe conversion notes:
+# - DOMAIN is kept as exact domain.
+# - DOMAIN-SUFFIX is converted to +.example.com.
+# - DOMAIN-KEYWORD is discarded. There is no lossless domain-provider equivalent.
+# - Single-label / TLD-wide suffixes such as top, xyz, icu, click are discarded to avoid overbroad matches.
+# - IP-CIDR / IP-CIDR6 / IP-ASN / PROCESS-NAME / USER-AGENT are discarded.
+# - Section comments are grouped by service category for maintenance only.
 payload:
-  # Ad networks / ad serving
-  - adservice
-  - doubleclick
+  # Google / major ad networks
   - '+.doubleclick.net'
   - '+.pagead2.googlesyndication.com'
   - '+.googlesyndication.com'
@@ -21,37 +18,24 @@ payload:
   - '+.criteo.com'
   - '+.taboola.com'
   - '+.outbrain.com'
+  # Other ad-related domains
+  - '+.adtrafficquality.google'
   - '+.adjust.com'
+  - '+.ads-twitter.com'
   - '+.ads.linkedin.com'
-  - '+.unityads.unity3d.com'
-  - '+.applovin.com'
-  - '+.admob.com'
-  - '+.baiduad.com'
   # Analytics / tracking / attribution
-  - statistic
-  - tracker
-  - tracking
-  - analytics
-  - metrics
-  - '+.umeng.com'
-  - '+.baidustatic.com'
-  # App / mobile ad SDK endpoints
   - '+.appsflyer.com'
   - '+.branch.io'
   - '+.kochava.com'
-  - '+.vungle.com'
-  # Chinese ad / tracking services
-  - '+.baidubce.com'
-  # Other AdvertisingLite domains
-  - adserver
-  - adtrack
-  - adclick
-  - telemetry
-  - '+.adtrafficquality.google'
-  - '+.ads-twitter.com'
+  - '+.umeng.com'
+  # Mobile ad SDKs
+  - '+.unityads.unity3d.com'
   - '+.chartboost.com'
+  - '+.applovin.com'
+  - '+.vungle.com'
+  - '+.admob.com'
+  # Chinese ad / tracking services
   - '+.umtrack.com'
-  - '+.click'
-  - '+.top'
-  - '+.xyz'
-  - '+.icu'
+  - '+.baidustatic.com'
+  - '+.baiduad.com'
+  - '+.baidubce.com'
