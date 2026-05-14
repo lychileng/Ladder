@@ -1,5 +1,6 @@
 payload:
   - '.hsbc.com.hk'
+  - '.hsbc.com'
   - '.hsbcprivatebank.com.hk'
   - '.hsbcassetmanagement.com.hk'
   - '.bochk.com'
@@ -8,4 +9,9 @@ payload:
   - '.za.group'
   - '.wise.com'
   - '.transferwise.com'
+  - '.elebank.com'
   - '.airstarbank.com'
+  - '.longbridge.com'
+  - '.longbridge.hk'
+  - '.longbridge.sg'
+  - '.lbkrs.com'
