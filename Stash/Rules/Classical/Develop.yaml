@@ -78,6 +78,13 @@ payload:
 
   # Figma / Design Dev
   - DOMAIN-SUFFIX,figma.com
+  - DOMAIN-SUFFIX,figma.site
+  - DOMAIN-SUFFIX,makeproxy-c.figma.site
+  - DOMAIN-SUFFIX,makeproxy-m.figma.site
+  - DOMAIN-SUFFIX,figma.app
+  - DOMAIN-SUFFIX,awswaf.com
+  - DOMAIN,esm.sh
+  - DOMAIN-SUFFIX,jsdelivr.net
 
   # CDN / Common Build Dependencies
   - DOMAIN-SUFFIX,jsdelivr.net
