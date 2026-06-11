@@ -28,3 +28,7 @@ payload:
   - '.bitget.com'
   - '.coinmarketcap.com'
   - '.coingecko.com'
+  - '.tradingview.com'
+  - '.tradingview.net'
+  - '.tvcdn.com'
+  - '.tvcdndoc.com'
