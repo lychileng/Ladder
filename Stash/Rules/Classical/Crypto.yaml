@@ -60,3 +60,9 @@ payload:
   - DOMAIN,query2.finance.yahoo.com
   - DOMAIN-SUFFIX,yimg.com
   - DOMAIN,api.twelvedata.com
+
+  # TradingView
+  - DOMAIN-SUFFIX,tradingview.com
+  - DOMAIN-SUFFIX,tradingview.net
+  - DOMAIN-SUFFIX,tvcdn.com
+  - DOMAIN-SUFFIX,tvcdndoc.com
