@@ -15,6 +15,14 @@ payload:
   - DOMAIN-SUFFIX,safepal.io
   - DOMAIN-SUFFIX,safepalwallet.com
 
+  # Plasma
+  - DOMAIN,api.plasma.org
+  - DOMAIN,app.plasma.org
+  - DOMAIN,rpc.plasma.to
+  - DOMAIN,plasmascan.to
+  - DOMAIN-SUFFIX,plasma.org
+  - DOMAIN-SUFFIX,plasma.to
+
   # Ready
   - DOMAIN-SUFFIX,ready.co
   - DOMAIN,card.ready.co
