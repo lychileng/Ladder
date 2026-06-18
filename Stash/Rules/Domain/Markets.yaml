@@ -1,6 +1,9 @@
 payload:
   - '.safepal.com'
   - '.safepal.io'
+  - '.plasma.org'
+  - '.plasma.to'
+  - '.plasmascan.to'
   - '.ready.co'
   - 'card.ready.co'
   - '.pokepay.cc'
@@ -32,6 +35,3 @@ payload:
   - '.tradingview.net'
   - '.tvcdn.com'
   - '.tvcdndoc.com'
-  - '.plasma.org'
-  - '.plasma.to'
-  - '.plasmascan.to'
