@@ -76,6 +76,8 @@ payload:
   # Third-party services
   - DOMAIN-SUFFIX,auth0.com
   - DOMAIN-SUFFIX,stripe.com
+  - DOMAIN-SUFFIX,stripe.network
+  - DOMAIN-SUFFIX,link.com
   - DOMAIN-SUFFIX,sentry.io
   - DOMAIN-SUFFIX,segment.io
   - DOMAIN-SUFFIX,intercom.io
