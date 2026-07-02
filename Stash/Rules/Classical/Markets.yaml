@@ -74,3 +74,6 @@ payload:
   - DOMAIN-SUFFIX,tradingview.net
   - DOMAIN-SUFFIX,tvcdn.com
   - DOMAIN-SUFFIX,tvcdndoc.com
+
+  # Polymarket
+  - DOMAIN-SUFFIX,polymarket.com
