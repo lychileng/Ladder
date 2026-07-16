@@ -1,6 +1,8 @@
 payload:
-  - '.hsbc.com.hk'
   - '.hsbc.com'
+  - '.hsbc.com.hk'
+  - '.servicing.hsbc.com.hk'
+  - '.openbanking.hsbc.com.hk'
   - '.hsbcprivatebank.com.hk'
   - '.hsbcassetmanagement.com.hk'
   - '.bochk.com'
