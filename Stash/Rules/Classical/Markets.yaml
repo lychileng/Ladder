@@ -10,18 +10,19 @@ payload:
   # Fiat24
   # - DOMAIN-SUFFIX,fiat24.com
 
-  # KAST
-  - DOMAIN-SUFFIX,kast.xyz
-  - DOMAIN-KEYWORD,kast
-
-  #Ether.fi
-  - DOMAIN-SUFFIX,ether.fi
-  - DOMAIN-KEYWORD,etherfi
-
   # SafePal
   - DOMAIN-SUFFIX,safepal.com
   - DOMAIN-SUFFIX,safepal.io
   - DOMAIN-SUFFIX,safepalwallet.com
+
+  # KAST
+  - DOMAIN-SUFFIX,kast.xyz
+  - DOMAIN-KEYWORD,kast
+  - DOMAIN-SUFFIX,kastapi.com
+
+  #Ether.fi
+  - DOMAIN-SUFFIX,ether.fi
+  - DOMAIN-KEYWORD,etherfi
 
   # Plasma
   - DOMAIN,api.plasma.org
