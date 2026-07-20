@@ -5,6 +5,8 @@ payload:
   - '.openbanking.hsbc.com.hk'
   - '.hsbcprivatebank.com.hk'
   - '.hsbcassetmanagement.com.hk'
+  - '.redhotoffers.hsbc.com.hk'
+  - 'cdnhbschostorage.azureedge.net'
   - '.bochk.com'
   - '.ebanking.bochk.com'
   - '.zabank.com'
