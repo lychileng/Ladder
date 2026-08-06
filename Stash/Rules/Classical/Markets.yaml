@@ -15,6 +15,15 @@ payload:
   - DOMAIN-SUFFIX,safepal.io
   - DOMAIN-SUFFIX,safepalwallet.com
 
+  # Basic
+  - DOMAIN-SUFFIX,rain.xyz
+  - DOMAIN-SUFFIX,sumsub.com
+  - DOMAIN,api.sumsub.com
+  - DOMAIN,static.sumsub.com
+  - DOMAIN-SUFFIX,infura.io
+  - DOMAIN-SUFFIX,sentry.io
+  - DOMAIN-SUFFIX,alchemy.com
+
   # KAST
   - DOMAIN-SUFFIX,kast.xyz
   - DOMAIN-KEYWORD,kast
@@ -22,7 +31,8 @@ payload:
 
   #Ether.fi
   - DOMAIN-SUFFIX,ether.fi
-  - DOMAIN-KEYWORD,etherfi
+  - DOMAIN,api.ether.fi
+  - DOMAIN,app.ether.fi
 
   # Plasma
   - DOMAIN,api.plasma.org
