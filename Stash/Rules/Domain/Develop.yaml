@@ -46,7 +46,6 @@ payload:
   - '.workers.dev'
   - '.render.com'
   - '.digitalocean.com'
-  - '.medium.com'
   - '.dev.to'
   - '.figma.com'
   - '.cdnjs.com'
