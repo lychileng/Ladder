@@ -41,7 +41,7 @@ payload:
   - '.suno.com'
   - '.elevenlabs.io'
   - '.auth0.com'
-  - '.sentry.io'
+  # - '.sentry.io'
   - '.segment.io'
   - '.intercom.io'
   - '.intercomcdn.com'
