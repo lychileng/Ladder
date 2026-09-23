@@ -19,12 +19,6 @@ payload:
   - DOMAIN,generativelanguage.googleapis.com
   - DOMAIN-SUFFIX,aiplatform.googleapis.com
 
-  # xAI
-  - DOMAIN-SUFFIX,x.ai
-  - DOMAIN-SUFFIX,grok.com
-  - DOMAIN,api.x.ai
-  - DOMAIN,accounts.x.ai
-
   # LangChain
   - DOMAIN-SUFFIX,langchain.com
   - DOMAIN,smith.langchain.com
